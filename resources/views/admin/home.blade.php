@@ -11,7 +11,7 @@
 
   <div id="ws" class="row">
     <div class="col">
-      <a href="add" class="btn btn-primary">Tambah User</a>
+      <a href="create" class="btn btn-primary">Tambah User</a>
     </div>
     <div class="col">
       <!-- Search form -->
@@ -30,6 +30,11 @@
 
   <div class="row">
     <div class="col col-12">
+      @if ($message = Session::get('success'))
+      <div class="alert alert-success">
+        {{ $message }}
+      </div>
+      @endif
       <table id="myTable" class="styled-table">
         <thead>
           <tr>
@@ -37,20 +42,24 @@
             <td>Nama</td>
             <td>Email</td>
             <td>Role</td>
-            <td>MOD</td>
+            <td></td>
           </tr>
         </thead>
 
         <tbody>
           @foreach($users as $u)
+          <!--  -->
           <tr>
-            <td>{{$u->id}}</td>
+            <td>{{ $i++ }}</td>
             <td>{{$u->name}}</td>
             <td>{{$u->email}}</td>
             <td>{{$u->role}}</td>
             <td>
-              <a href="#">Edit</a>
-              <a href="#">Add</a>
+              <a
+                class="btn btn-sm btn-primary float-right"
+                href="{{route ('admin_edit', $u->id)}}"
+                >EDIT</a
+              >
             </td>
           </tr>
           @endforeach
@@ -59,5 +68,8 @@
     </div>
   </div>
 </div>
+@section('scripts')
 <script src="{{asset('js/script.js')}}"></script>
+@endsection
+<!--  -->
 @endsection
