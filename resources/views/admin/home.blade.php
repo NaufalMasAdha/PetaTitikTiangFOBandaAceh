@@ -9,7 +9,7 @@
     </div>
   </div>
 
-  <div id="ws" class="row">
+  <div class="row">
     <div class="col">
       <a href="create" class="btn btn-primary">Tambah User</a>
     </div>
@@ -21,7 +21,7 @@
           onkeyup="search()"
           class="form-control"
           type="text"
-          placeholder="Cari user"
+          placeholder="Cari nama user"
           aria-label="Search"
         />
       </form>
@@ -29,20 +29,26 @@
   </div>
 
   <div class="row">
-    <div class="col col-12">
+    <div class="col-12">
       @if ($message = Session::get('success'))
       <div class="alert alert-success">
         {{ $message }}
       </div>
+      @endif @if ($message = Session::get('deleted'))
+      <div class="alert alert-danger">
+        {{ $message }}
+      </div>
       @endif
-      <table id="myTable" class="styled-table">
+    </div>
+    <div class="col-12 table-responsive">
+      <table id="myTable" class="table table-striped">
         <thead>
           <tr>
             <td>#</td>
-            <td>Nama</td>
-            <td>Email</td>
-            <td>Role</td>
-            <td></td>
+            <td>@sortablelink('name','Nama')</td>
+            <td>@sortablelink('email','Email')</td>
+            <td>@sortablelink('role', 'Role')</td>
+            <td><i class="float-right fa fa-user-cog"></i></td>
           </tr>
         </thead>
 
@@ -67,9 +73,16 @@
       </table>
     </div>
   </div>
+  <div id="ws" class="d-flex justify-content-center">
+    {!! $users->links() !!}
+  </div>
 </div>
 @section('scripts')
 <script src="{{asset('js/script.js')}}"></script>
+<script
+  src="https://kit.fontawesome.com/cd504552aa.js"
+  crossorigin="anonymous"
+></script>
 @endsection
 <!--  -->
 @endsection

@@ -2,16 +2,15 @@
 
 namespace App\Http\Controllers;
 use App\Models\User; 
-use App\Models\Post;
 use Illuminate\Validation\Rule;
-
+use DB;
+use Auth;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function index(){
-        $users = User::all();
-        
+    public function index(User $user){
+        $users = $user->where('role', '!=','Admin')->sortable()->paginate(10);
         return view("admin.home",['users' => $users, 'i' => 1]);
     }
 
@@ -65,6 +64,6 @@ class AdminController extends Controller
     public function delete($id){
         $user = User::findOrFail($id);
         $user->delete();
-        return redirect()->route('admin_home');
+        return redirect()->route('admin_home')->with('deleted', 'User dengan ID : '. $id .' telah dihapus');
     }
 }

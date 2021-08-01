@@ -60,7 +60,7 @@
         </div>
         <div class="form-group">
           <label for="password"
-            >Password (Kosongkan jika tidak ingin ubah password)</label
+            >Password (Kosongkan jika tidak ingin diubah)</label
           >
           <input
             autocomplete="off"
@@ -82,7 +82,7 @@
         @csrf @method('delete')
         <button
           type="submit"
-          class="btn btn-danger w-100"
+          class="btn btn-outline-danger w-100"
           onclick="return confirm('Hapus akun ini?')"
         >
           HAPUS USER INI

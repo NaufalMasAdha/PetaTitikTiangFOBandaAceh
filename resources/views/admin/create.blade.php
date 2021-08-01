@@ -50,7 +50,7 @@
         </div>
 
         <input
-          class="btn btn-primary float-right"
+          class="btn btn-primary my-3 w-100"
           type="submit"
           value="TAMBAH USER"
         />

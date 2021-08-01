@@ -37,6 +37,16 @@
 
 #ws {
   position: sticky;
-  top: 0;
+  bottom: 1%;
   z-index: 100;
+}
+
+thead a {
+  font-weight: bold;
+  color: rgb(37, 37, 37);
+}
+
+td a:hover {
+  color: white;
+  text-decoration-line: none;
 }
