@@ -1,5 +1,14 @@
 @extends('layouts/app')
 <!--  -->
+@section('nav-menu')
+<div class="nav_list">
+  <a href="{{ route('admin_home') }}" class="nav_link active">
+    <i class="bx bx-grid-alt nav_icon"></i>
+    <span class="nav_name">Dashboard</span>
+  </a>
+</div>
+@endsection
+<!--  -->
 @section('content')
 <div class="container">
   <h1>Tambah User</h1>
