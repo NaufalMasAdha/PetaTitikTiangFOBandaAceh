@@ -29,12 +29,9 @@
         <span>@yield('subtitle')</span>
       </div>
 
-      <div class="d-flex">
+      <div class="d-none d-sm-flex">
         <div class="header_img">
-          <img
-            src="https://i.pinimg.com/236x/45/11/c5/4511c5871ff8011385b023be70878d81.jpg"
-            alt="profile-pic"
-          />
+          <img src="{{ asset('assets/img/logo.png') }}" alt="profile-pic" />
         </div>
         <span>
           {{ Auth::user()->name }} - {{ Auth::user()->role }}
