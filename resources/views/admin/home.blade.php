@@ -64,8 +64,9 @@
           <tr>
             <td class="text-center" colspan="5">Tidak ada data user</td>
           </tr>
-          @endif @foreach($users as $u)
+          @endif
           <!--  -->
+          @foreach($users as $u)
           <tr>
             <td>{{ $i++ }}</td>
             <td>{{$u->name}}</td>
