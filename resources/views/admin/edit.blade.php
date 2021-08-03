@@ -1,5 +1,7 @@
 @extends('layouts/app')
 <!--  -->
+@section('title','Admin | Edit') @section('subtitle', "Edit User")
+<!--  -->
 @section('nav-menu')
 <div class="nav_list">
   <a href="{{ route('admin_home') }}" class="nav_link active">

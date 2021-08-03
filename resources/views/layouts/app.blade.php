@@ -20,12 +20,13 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
     />
-    <title>Document</title>
+    <title>@yield('title')</title>
   </head>
   <body id="body-pd">
     <header class="header" id="header">
       <div class="header_toggle">
         <i class="bx bx-menu" id="header-toggle"></i>
+        <span>@yield('subtitle')</span>
       </div>
 
       <div class="d-flex">

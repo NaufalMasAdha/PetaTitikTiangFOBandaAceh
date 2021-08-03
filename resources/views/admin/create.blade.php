@@ -1,5 +1,7 @@
 @extends('layouts/app')
 <!--  -->
+@section('title','Admin | Tambah User') @section('subtitle', "Tambah User")
+<!--  -->
 @section('nav-menu')
 <div class="nav_list">
   <a href="{{ route('admin_home') }}" class="nav_link active">
@@ -11,7 +13,6 @@
 <!--  -->
 @section('content')
 <div class="container">
-  <h1>Tambah User</h1>
   <div class="row">
     <div class="col-12 col-md-5 border mr-3 p-3">
       <form class="form-group" method="POST" action="{{route('admin_store')}}">

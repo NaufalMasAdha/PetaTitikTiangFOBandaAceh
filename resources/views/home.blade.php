@@ -35,21 +35,26 @@
 
       h1 {
         font-family: cocon;
-        animation: fade 2s;
+        animation: fade 4s;
+        animation-fill-mode: forwards;
         color: rgb(34, 87, 87);
-      }
-      p {
-        animation-delay: 2s;
-        animation: fade 2s;
       }
 
       @keyframes fade {
-        from {
+        0% {
           opacity: 0;
         }
 
-        to {
+        20% {
           opacity: 100%;
+        }
+
+        80%{
+          opacity: 100%;
+        }
+
+        100%{
+          opacity:0;
         }
       }
 
@@ -72,11 +77,9 @@
   <body>
     <div class="container justify-content-center">
       <div class="row">
-        <div class="col">
-          <h1>Selamat Datang!</h1>
-          <p>
-            Anda berhasil masuk sebagai
-            <strong>{{ Auth::user()->role }}</strong>
+        <div class="col text-center">
+          <h1>Selamat Datang,<br> </h1>
+          <h1>{{ Auth::user()->name }}!</h1>
           </p>
         </div>
       </div>

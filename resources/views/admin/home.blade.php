@@ -1,5 +1,7 @@
 @extends('layouts/app')
 <!--  -->
+@section('title','Admin | Home') @section('subtitle', "Daftar User")
+<!--  -->
 @section('nav-menu')
 <div class="nav_list">
   <a href="{{ route('admin_home') }}" class="nav_link active">
@@ -12,12 +14,6 @@
 <link rel="stylesheet" href="{{asset('css/style.css')}}" />
 @section('content')
 <div class="container">
-  <div class="row">
-    <div class="col-12">
-      <h4>Daftar User</h4>
-    </div>
-  </div>
-
   <div class="row">
     <div class="col">
       <!-- Search form -->
@@ -33,7 +29,7 @@
       </form>
     </div>
     <div class="col">
-      <a href="create" class="btn btn-dark"
+      <a href="{{ route('admin_create') }}" class="btn btn-dark"
         ><i class="fa fa-user-plus"></i> Tambah User</a
       >
     </div>
@@ -64,7 +60,11 @@
         </thead>
 
         <tbody>
-          @foreach($users as $u)
+          @if(count($users) == 0)
+          <tr>
+            <td class="text-center" colspan="5">Tidak ada data user</td>
+          </tr>
+          @endif @foreach($users as $u)
           <!--  -->
           <tr>
             <td>{{ $i++ }}</td>
