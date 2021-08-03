@@ -25,11 +25,13 @@ Auth::routes([
   'verify' => false, // Email Verification Routes...
 ]);
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/home ', [HomeController::class, 'index'])->name('home');
 
 Route::get('/admin/home', [AdminController::class,'index'])->name("admin_home");
-Route::get('/admin/create', [AdminController::class,'create'])->name("admin_add");
+Route::get('/admin/create', [AdminController::class,'create'])->name("admin_create");
 Route::post('/admin/create', [AdminController::class,'store'])->name("admin_store");
 Route::get('/admin/edit/{id}', [AdminController::class,'edit'])->name("admin_edit");
 Route::post('/admin/edit/{id}', [AdminController::class,'update'])->name("admin_update");
 Route::delete("/admin/delete/{id}", [AdminController::class, 'delete'])->name("admin_delete");
+
+Route::get('/map/home', [MapController::class,'index'])->name("map_home");

@@ -1,101 +1,79 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
-
-    <title>{{ config("app.name", "Laravel") }}</title>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+    <meta charset="UTF-8" />
+    @yield('redirect')
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{ asset('css/myapp.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
     <link
-      href="https://fonts.googleapis.com/css?family=Nunito"
       rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
     />
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+    />
+    <title>@yield('title')</title>
   </head>
-  <body>
-    <div id="app">
-      <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-        <div class="container">
-          <a class="navbar-brand" href="{{ url('/') }}">
-            {{ config("app.name", "Laravel") }}
-          </a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="{{ __('Toggle navigation') }}"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
+  <body id="body-pd">
+    <header class="header" id="header">
+      <div class="header_toggle">
+        <i class="bx bx-menu" id="header-toggle"></i>
+        <span>@yield('subtitle')</span>
+      </div>
 
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <!-- Left Side Of Navbar -->
-            <ul class="navbar-nav mr-auto"></ul>
-
-            <!-- Right Side Of Navbar -->
-            <ul class="navbar-nav ml-auto">
-              <!-- Authentication Links -->
-              @guest @else
-              <li class="nav-item dropdown">
-                <a
-                  id="navbarDropdown"
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  role="button"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                  v-pre
-                >
-                  {{ Auth::user()->name }}
-                </a>
-
-                <div
-                  class="dropdown-menu dropdown-menu-right"
-                  aria-labelledby="navbarDropdown"
-                >
-                  <a
-                    class="dropdown-item"
-                    href="{{ route('logout') }}"
-                    onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();"
-                  >
-                    {{ __("Logout") }}
-                  </a>
-
-                  <form
-                    id="logout-form"
-                    action="{{ route('logout') }}"
-                    method="POST"
-                    class="d-none"
-                  >
-                    @csrf
-                  </form>
-                </div>
-              </li>
-              @endguest
-            </ul>
-          </div>
+      <div class="d-flex">
+        <div class="header_img">
+          <img
+            src="https://i.pinimg.com/236x/45/11/c5/4511c5871ff8011385b023be70878d81.jpg"
+            alt="profile-pic"
+          />
         </div>
+        <span>
+          {{ Auth::user()->name }} - {{ Auth::user()->role }}
+          <br />
+          {{ Auth::user()->email}}
+        </span>
+      </div>
+    </header>
+    <div class="l-navbar" id="nav-bar">
+      <nav class="nav">
+        <div>
+          <a href="#" class="nav_logo">
+            <i class="bx bx-layer nav_logo-icon"></i>
+            <span class="nav_logo-name">FO Maps</span>
+          </a>
+          @yield('nav-menu')
+        </div>
+        <a
+          onclick="event.preventDefault();document.getElementById('logout-form').submit();"
+          href="{{ route('logout') }}"
+          class="nav_link"
+        >
+          <i class="bx bx-log-out nav_icon"></i>
+          <span class="nav_name">Log Out</span>
+        </a>
       </nav>
-
-      <main class="py-4">
-        @yield('content')
-      </main>
     </div>
+    <form
+      id="logout-form"
+      action="{{ route('logout') }}"
+      method="POST"
+      class="d-none"
+    >
+      @csrf
+    </form>
+    <main class="main">
+      @yield('content')
+    </main>
+    <script src="{{ asset('js/myscript.js') }}"></script>
     @yield('scripts')
   </body>
 </html>

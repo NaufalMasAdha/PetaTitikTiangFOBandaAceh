@@ -1,5 +1,16 @@
 @extends('layouts/app')
 <!--  -->
+@section('title','Admin | Edit') @section('subtitle', "Edit User")
+<!--  -->
+@section('nav-menu')
+<div class="nav_list">
+  <a href="{{ route('admin_home') }}" class="nav_link active">
+    <i class="bx bx-grid-alt nav_icon"></i>
+    <span class="nav_name">Dashboard</span>
+  </a>
+</div>
+@endsection
+<!--  -->
 @section('content')
 <div class="container">
   <div class="row">
