@@ -14,12 +14,12 @@
 @section('content')
 <div class="container">
   <div class="row">
-    <div class="col-12 col-md-5 border mr-3 p-3">
+    <div class="col-12 col-md-4 border mr-3 p-3">
       <form class="form-group" method="POST" action="{{route('admin_store')}}">
         @method('post')
         <!--  -->
         @csrf
-        <div class="form-group">
+        <div class="form-group my-3">
           <label for="nama">Nama </label>
           <input
             autocomplete="off"
@@ -35,7 +35,7 @@
           </span>
           @enderror
         </div>
-        <div class="form-group">
+        <div class="form-group my-3">
           <label for="email">Email </label>
           <input
             autocomplete="off"
@@ -51,7 +51,7 @@
           </span>
           @enderror
         </div>
-        <div class="input-group">
+        <div class="input-group my-3">
           <label class="input-group-text" for="role">Role</label>
           <select class="form-select" id="role" name="role">
             <option value="Pimpinan">Pimpinan</option>

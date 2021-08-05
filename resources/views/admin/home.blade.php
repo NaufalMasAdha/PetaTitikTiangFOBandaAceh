@@ -10,83 +10,84 @@
   </a>
 </div>
 @endsection
-<!--  -->
+<!-- Css -->
+@section('style')
 <link rel="stylesheet" href="{{asset('css/style.css')}}" />
+@endsection
+<!--  -->
 @section('content')
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <!-- Search form -->
-      <form action="">
-        <input
-          id="myInput"
-          onkeyup="search()"
-          class="form-control"
-          type="text"
-          placeholder="Cari nama user"
-          aria-label="Search"
-        />
-      </form>
-    </div>
-    <div class="col">
-      <a href="{{ route('admin_create') }}" class="btn btn-dark"
-        ><i class="fa fa-user-plus"></i> Tambah User</a
-      >
-    </div>
+<div class="row">
+  <div class="col-6 col-md-4">
+    <!-- Search form -->
+    <form action="">
+      <input
+        id="myInput"
+        onkeyup="search()"
+        class="form-control"
+        type="text"
+        placeholder="Cari nama user"
+        aria-label="Search"
+      />
+    </form>
   </div>
-
-  <div class="row">
-    <div class="col-12">
-      @if ($message = Session::get('success'))
-      <div class="alert alert-success">
-        {{ $message }}
-      </div>
-      @endif @if ($message = Session::get('deleted'))
-      <div class="alert alert-danger">
-        {{ $message }}
-      </div>
-      @endif
-    </div>
-    <div class="col-12 table-responsive">
-      <table id="myTable" class="table table-striped">
-        <thead>
-          <tr>
-            <td>#</td>
-            <td>@sortablelink('name','Nama')</td>
-            <td>@sortablelink('email','Email')</td>
-            <td>@sortablelink('role', 'Role')</td>
-            <td><i class="float-right fa fa-user-cog"></i></td>
-          </tr>
-        </thead>
-
-        <tbody>
-          @if(count($users) == 0)
-          <tr>
-            <td class="text-center" colspan="5">Tidak ada data user</td>
-          </tr>
-          @endif
-          <!--  -->
-          @foreach($users as $u)
-          <tr>
-            <td>{{ $i++ }}</td>
-            <td>{{$u->name}}</td>
-            <td>{{$u->email}}</td>
-            <td>{{$u->role}}</td>
-            <td>
-              <a
-                class="btn btn-sm btn-primary float-right"
-                href="{{route ('admin_edit', $u->id)}}"
-                >EDIT</a
-              >
-            </td>
-          </tr>
-          @endforeach
-        </tbody>
-      </table>
-    </div>
+  <div class="col-6 col-md-3">
+    <a href="{{ route('admin_create') }}" class="btn btn-dark"
+      ><i class="fa fa-user-plus"></i> Tambah User</a
+    >
   </div>
-  <div id="ws" class="d-flex justify-content-center">
+  <div class="col-12 col-md-3">
     {!! $users->links() !!}
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    @if ($message = Session::get('success'))
+    <div class="alert alert-success">
+      {{ $message }}
+    </div>
+    @endif @if ($message = Session::get('deleted'))
+    <div class="alert alert-danger">
+      {{ $message }}
+    </div>
+    @endif
+  </div>
+  <div class="col-12 table-responsive">
+    <table id="myTable" class="table table-striped">
+      <thead>
+        <tr>
+          <td>#</td>
+          <td>@sortablelink('name','Nama')</td>
+          <td>@sortablelink('email','Email')</td>
+          <td>@sortablelink('role', 'Role')</td>
+          <td><i class="float-right fa fa-user-cog"></i></td>
+        </tr>
+      </thead>
+
+      <tbody>
+        @if(count($users) == 0)
+        <tr>
+          <td class="text-center" colspan="5">Tidak ada data user</td>
+        </tr>
+        @endif
+        <!--  -->
+        @foreach($users as $u)
+        <tr>
+          <td>{{ $i++ }}</td>
+          <td>{{$u->name}}</td>
+          <td>{{$u->email}}</td>
+          <td>{{$u->role}}</td>
+          <td>
+            <a
+              class="btn btn-sm btn-primary float-right"
+              href="{{route ('admin_edit', $u->id)}}"
+              >EDIT</a
+            >
+          </td>
+        </tr>
+        @endforeach
+      </tbody>
+    </table>
   </div>
 </div>
 @section('scripts')

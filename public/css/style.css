@@ -11,3 +11,7 @@ td a:hover {
   color: rgb(85, 155, 187);
   text-decoration-line: none;
 }
+
+.table-responsive {
+  margin-top: 1% !important;
+}

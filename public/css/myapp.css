@@ -17,6 +17,15 @@
   box-sizing: border-box;
 }
 
+.white-container {
+  position: relative;
+  height: 85vh;
+  width: 100%;
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.06);
+  border-radius: 4px;
+  padding: 2%;
+  background-color: white;
+}
 body {
   position: relative;
   margin: var(--header-height) 0 0 0;
@@ -34,6 +43,9 @@ main {
   padding-top: 4rem;
 }
 
+.table > :not(caption) > * > * {
+  padding: 0.3rem 0.5rem !important;
+}
 .header {
   width: 100%;
   height: var(--header-height);
@@ -70,9 +82,7 @@ html {
 
 .d-flex span {
   display: flex;
-  line-height: 1.2em;
   align-items: center;
-  font-size: 12px;
   margin-left: 1em;
 }
 
@@ -146,7 +156,6 @@ html {
 
 .d-sm-flex span {
   display: flex;
-  line-height: 1.2em;
   align-items: center;
   font-size: 1em;
   margin-left: 1em;

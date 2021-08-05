@@ -3,6 +3,30 @@
 * {
   font-family: "Montserrat", sans-serif;
 }
+@keyframes fadeY {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 100;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeX {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
+  to {
+    opacity: 100;
+    transform: translateX(0);
+  }
+}
+
 body {
   padding: 0;
   margin: 0;
@@ -20,6 +44,7 @@ body > .container-fluid,
 h1 {
   font-weight: 800;
 }
+
 .bg-blue {
   background-image: url("/assets/img/wave.svg");
 }
@@ -31,14 +56,20 @@ h1 {
 .content > p,
 .content > h1 {
   padding: 0% 10%;
+  animation: fadeY 0.5s;
 }
 
 .content img {
   margin: 0 auto;
+  animation: fadeY 0.5s;
   display: flex;
 }
 
 .form-login {
+  opacity: 0;
+  animation: fadeX 1s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
   margin: 10% auto;
   width: 80%;
 }
