@@ -19,7 +19,7 @@ class MapController extends Controller
         $map_center = array(
             'lat' => 5.573279429238394, 
             'lng' => 95.3455186237172,
-            'zoom' => 15,
+            'zoom' => 13,
             'markers' => $markers
         );
 

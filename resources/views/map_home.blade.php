@@ -33,5 +33,6 @@
 @section('scripts')
 <!-- Script Gonoware -->
 @mapscripts
+<script src="{{ asset('js/map.js') }}"></script>
 <!--  -->
 @endsection
