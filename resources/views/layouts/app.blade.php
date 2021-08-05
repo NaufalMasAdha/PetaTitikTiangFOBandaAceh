@@ -43,11 +43,17 @@
     <div class="l-navbar" id="nav-bar">
       <nav class="nav">
         <div>
-          <a href="#" class="nav_logo">
-            <i class="bx bx-layer nav_logo-icon"></i>
+          @if(Auth::user()->role == 'admin')
+          <a href="{{ route('admin_home') }}" class="nav_logo">
+            <i class="bx bx-map-alt nav_logo-icon"></i>
             <span class="nav_logo-name">FO Maps</span>
           </a>
-          @yield('nav-menu')
+          @else
+          <a href="{{ route('map_home') }}" class="nav_logo">
+            <i class="bx bx-map-alt nav_logo-icon"></i>
+            <span class="nav_logo-name">FO Maps</span>
+          </a>
+          @endif @yield('nav-menu')
         </div>
         <a
           onclick="event.preventDefault();document.getElementById('logout-form').submit();"
