@@ -7,7 +7,13 @@ use Illuminate\Http\Request;
 class MapController extends Controller
 {
     public function index(){
-        return view('map_home');
+        $map_center = array(
+            'lat' => 5.573279429238394, 
+            'lng' => 95.3455186237172,
+            'zoom' => 15
+        );
+
+        return view('map_home', ['map' => $map_center]);
     }
 
     public function index_tiang(){
