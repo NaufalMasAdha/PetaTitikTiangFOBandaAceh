@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Instansi; 
+use App\Models\Tiang; 
 class MapController extends Controller
 {
     public function index(){
@@ -27,10 +28,13 @@ class MapController extends Controller
     }
 
     public function index_tiang(){
-        return view('map.index');
+        $tiangs = Tiang::paginate(8);
+        return view('map.index', ['tiangs' => $tiangs]);
+        
     }
-    public function index_instansi(){
-        return view('instansi.index');
+    public function index_instansi(Instansi $instansi){
+        $instansis = Instansi::paginate(8);
+        return view('instansi.index', ['instansis' => $instansis]);
     }
 
     public function tambah_tiang(){

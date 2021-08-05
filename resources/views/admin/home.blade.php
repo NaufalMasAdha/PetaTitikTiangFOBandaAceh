@@ -10,8 +10,11 @@
   </a>
 </div>
 @endsection
-<!--  -->
+<!-- Css -->
+@section('style')
 <link rel="stylesheet" href="{{asset('css/style.css')}}" />
+@endsection
+<!--  -->
 @section('content')
 <div class="row">
   <div class="col-6 col-md-4">

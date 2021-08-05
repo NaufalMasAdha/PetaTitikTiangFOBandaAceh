@@ -18,5 +18,5 @@
 <!--  -->
 
 @section('content')
-<h1>Disini nanti ada map</h1>
+<h1>Disini nanti ada form tambah tiang dan upload csv</h1>
 @endsection
