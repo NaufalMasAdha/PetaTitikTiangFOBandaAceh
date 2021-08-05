@@ -24,12 +24,9 @@
 @endsection
 <!--  -->
 @section('content')
-<div class="container-fluid">
-  <div class="map">
     <i class="filter bx bx-filter-alt"></i>
     @map($map)
   </div>
-</div>
 @endsection
 
 <!--  -->

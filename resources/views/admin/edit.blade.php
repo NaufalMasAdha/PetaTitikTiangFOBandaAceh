@@ -39,7 +39,7 @@
           </span>
           @enderror
         </div>
-        <div class="form-group">
+        <div class="form-group my-3">
           <label for="email">Email </label>
           <input
             autocomplete="off"
@@ -56,7 +56,7 @@
           @enderror
         </div>
 
-        <div class="input-group mb-3">
+        <div class="input-group my-3">
           <label class="input-group-text" for="role">Role</label>
           <select class="form-select" id="role" name="role">
             <option
@@ -69,16 +69,15 @@
             <option value="Teknisi">Teknisi</option>
           </select>
         </div>
-        <div class="form-group">
-          <label for="password"
-            >Password (Kosongkan jika tidak ingin diubah)</label
-          >
+        <div class="form-group my-3">
+          <label for="password">Password </label>
           <input
             autocomplete="off"
             class="form-control @error('password') is-invalid @enderror"
             type="password"
             name="password"
             id="password"
+            placeholder="Kosongkan jika tidak ingin diubah"
           />
           @error('password')
           <span class="text-danger" role="alert">
@@ -86,7 +85,11 @@
           </span>
           @enderror
         </div>
-        <input class="btn btn-primary w-100" type="submit" value="SUBMIT" />
+        <input
+          class="btn btn-primary w-100 my-3"
+          type="submit"
+          value="SUBMIT"
+        />
       </form>
 
       <form action="{{route ('admin_delete',$user->id)}}" method="POST">

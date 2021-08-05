@@ -76,7 +76,11 @@
       @csrf
     </form>
     <main class="main">
-      @yield('content')
+      <div class="container-fluid">
+        <div class="white-container">
+          @yield('content')
+        </div>
+      </div>
     </main>
     <script src="{{ asset('js/myscript.js') }}"></script>
     @yield('scripts')
