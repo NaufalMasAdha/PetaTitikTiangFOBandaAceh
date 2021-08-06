@@ -27,29 +27,129 @@ class MapController extends Controller
         return view('map_home', ['map' => $map_center]);
     }
 
+     // Bagian CRUD Tiang
     public function index_tiang(){
         $tiangs = Tiang::paginate(8);
         return view('map.index', ['tiangs' => $tiangs]);
-        
-    }
-    public function index_instansi(Instansi $instansi){
-        $instansis = Instansi::paginate(8);
-        return view('instansi.index', ['instansis' => $instansis]);
     }
 
     public function tambah_tiang(){
         return view('map.create');
     }
 
-    public function edit_tiang(){
-        return view('map.edit');
+    public function store_tiang(Request $request){
+        $request->validate([
+            'alamat' => 'required',
+            'tahun_pembangunan' => 'required',
+            'tinggi' => 'required',
+            'tipe' => 'required',
+            'latitude' => 'required',
+            'longitude' => 'required'
+            
+        ]);
+
+        Tiang::create([
+            'alamat' =>  $request->alamat,
+            'tahun_pembangunan' => $request->tahun_pembangunan,
+            'tinggi' => $request->tinggi,
+            'tipe' => $request->tipe,
+            'latitude' => $request->latitude,
+            'longitude' => $request->longitude
+        ]);
+        return redirect()->route('store_tiang')->with(['success' => 'Tiang berhasil ditambahkan']);
+    }
+
+    public function edit_tiang( $id){
+        $tiang = Tiang::findOrFail($id);
+        return view("tiang.edit", ['tiang'=>$tiang]);
+    }
+
+    public function update_tiang(Request $request ,$id){
+        $request->validate([
+            'alamat' => 'required',
+            'tahun_pembangunan' => 'required',
+            'tinggi' => 'required',
+            'tipe' => 'required',
+            'latitude' => 'required',
+            'longitude' => 'required'
+            
+        ]);
+
+        Tiang::find($id)->update([
+            'alamat' =>  $request->alamat,
+            'tahun_pembangunan' => $request->tahun_pembangunan,
+            'tinggi' => $request->tinggi,
+            'tipe' => $request->tipe,
+            'latitude' => $request->latitude,
+            'longitude' => $request->longitude
+        ]);
+        return redirect()->route('tiang.index')->with(['success' => 'Tiang berhasil diperbarui']);
+    }
+    
+    public function delete_tiang($id){
+        $tiang = Tiang::findOrFail($id);
+        $tiang->delete();
+        return redirect()->route('instansi_index')->with('deleted', 'tiang dengan ID : '. $id .' telah dihapus');
+    }
+
+    // Bagian CRUD instansi
+    public function index_instansi(Instansi $instansi){
+        $instansis = Instansi::paginate(8);
+        return view('instansi.index', ['instansis' => $instansis]);
     }
 
     public function tambah_instansi(){
         return view('instansi.create');
     }
 
-    public function edit_instansi(){
-        return view('instansi.edit');
+    public function store_instansi(Request $request){
+        $request->validate([
+            'nama' => 'required',
+            'alamat' => 'required',
+            'no_hp' => 'required',
+            'latitude' => 'required',
+            'longitude' => 'required'
+            
+        ]);
+
+        Instansi::create([
+            'nama' => $request->nama,
+            'alamat' =>  $request->alamat,
+            'no_hp' => $request->no_hp,
+            'latitude' => $request->latitude,
+            'longitude' => $request->longitude
+        ]);
+        return redirect()->route('store_instansi')->with(['success' => 'Instansi berhasil ditambahkan']);
+    }
+
+    public function edit_instansi( $id){
+        $instansi = Instansi::findOrFail($id);
+        return view("instansi.edit", ['instansi'=>$instansi]);
+    }
+
+    public function update_instansi(Request $request ,$id){
+
+        $request->validate([
+            'nama' => 'required',
+            'alamat' => 'required',
+            'no_hp' => 'required',
+            'latitude' => 'required',
+            'longitude' => 'required'
+        ]);
+
+        Instansi::find($id)->update([
+            'nama' => $request->nama,
+            'alamat' =>  $request->alamat,
+            'no_hp' => $request->no_hp,
+            'latitude' => $request->latitude,
+            'longitude' => $request->longitude
+        ]);
+        return redirect()->route('instansi.index')->with(['success' => 'Instansi berhasil diperbarui']);
+    }
+
+    public function delete_instansi($id){
+        $instansi = Instansi::findOrFail($id);
+        $instansi->delete();
+        return redirect()->route('instansi_index')->with('deleted', 'instansi dengan ID : '. $id .' telah dihapus');
     }
 }
