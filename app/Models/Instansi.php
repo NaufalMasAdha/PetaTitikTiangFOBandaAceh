@@ -4,8 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Kyslik\ColumnSortable\Sortable;
 
 class Instansi extends Model
 {
     use HasFactory;
+    use Sortable;
+
+        public $sortable = [   
+        'nama',
+        'alamat',
+    ];
+
+
 }

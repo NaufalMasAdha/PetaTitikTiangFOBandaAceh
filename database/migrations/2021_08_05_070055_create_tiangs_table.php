@@ -21,6 +21,7 @@ class CreateTiangsTable extends Migration
             $table->string('tipe');
             $table->string('latitude');
             $table->string('longitude');
+            $table->timestamps();
         });
     }
 

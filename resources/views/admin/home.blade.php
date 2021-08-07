@@ -43,11 +43,11 @@
 <div class="row">
   <div class="col-12">
     @if ($message = Session::get('success'))
-    <div class="alert alert-success">
+    <div class="alert alert-success my-3">
       {{ $message }}
     </div>
     @endif @if ($message = Session::get('deleted'))
-    <div class="alert alert-danger">
+    <div class="alert alert-danger my-3">
       {{ $message }}
     </div>
     @endif
@@ -60,7 +60,9 @@
           <td>@sortablelink('name','Nama')</td>
           <td>@sortablelink('email','Email')</td>
           <td>@sortablelink('role', 'Role')</td>
-          <td><i class="float-right fa fa-user-cog"></i></td>
+          <td>
+            <i class="fa fa-user-cog"></i>
+          </td>
         </tr>
       </thead>
 
@@ -77,12 +79,33 @@
           <td>{{$u->name}}</td>
           <td>{{$u->email}}</td>
           <td>{{$u->role}}</td>
-          <td>
-            <a
-              class="btn btn-sm btn-primary float-right"
-              href="{{route ('admin_edit', $u->id)}}"
-              >EDIT</a
+          <td class="d-flex">
+            <form
+              class="d-none"
+              action="{{route ('admin_delete',$u->id)}}"
+              method="POST"
             >
+              @csrf @method('delete')
+              <button
+                id="del-btn"
+                type="submit"
+                onclick="return confirm('Hapus akun ini?')"
+              ></button>
+              <a onclick="document.getElementById('del-btn').click()" href="#"
+                ><i class="bi bi-trash"></i
+              ></a>
+            </form>
+            <a
+              class="btn btn-sm btn-primary me-3"
+              href="{{route ('admin_edit', $u->id)}}"
+              ><i class="bi bi-pencil-square"></i
+            ></a>
+            <a
+              class="btn btn-sm btn-danger"
+              onclick="document.getElementById('del-btn').click()"
+              href="#"
+              ><i class="bi bi-trash"></i
+            ></a>
           </td>
         </tr>
         @endforeach

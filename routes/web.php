@@ -39,15 +39,15 @@ Route::get('/map/home', [MapController::class,'index'])->name("map_home");
 
 Route::get('/map/tiang/', [MapController::class,'index_tiang'])->name("daftar_tiang");
 Route::get('/map/tiang/tambah', [MapController::class,'tambah_tiang'])->name("tambah_tiang");
-Route::post('/map/tiang/tambah', [MapController::class,'tambah_tiang'])->name("store_tiang");
+Route::post('/map/tiang/tambah', [MapController::class,'store_tiang'])->name("store_tiang");
 Route::get('/map/tiang/edit/{id}', [MapController::class,'edit_tiang'])->name("edit_tiang");
-Route::post('/map/tiang/edit/{id}', [MapController::class,'edit_tiang'])->name("update_tiang");
-Route::delete('/map/tiang/delete{id}', [MapController::class,'edit_tiang'])->name("delete_tiang");
+Route::post('/map/tiang/edit/{id}', [MapController::class,'update_tiang'])->name("update_tiang");
+Route::delete('/map/tiang/delete{id}', [MapController::class,'delete_tiang'])->name("delete_tiang");
 
 Route::get('/map/instansi/', [MapController::class,'index_instansi'])->name("daftar_instansi");
 Route::get('/map/instansi/tambah', [MapController::class,'tambah_instansi'])->name("tambah_instansi");
-Route::post('/map/instansi/tambah', [MapController::class,'tambah_instansi'])->name("store_instansi");
+Route::post('/map/instansi/tambah', [MapController::class,'store_instansi'])->name("store_instansi");
 Route::get('/map/instansi/edit/{id}', [MapController::class,'edit_instansi'])->name("edit_instansi");
-Route::post('/map/instansi/edit/{id}', [MapController::class,'edit_instansi'])->name("update_instansi");
+Route::post('/map/instansi/edit/{id}', [MapController::class,'update_instansi'])->name("update_instansi");
 Route::delete('/map/instansi/delete{id}', [MapController::class,'edit_instansi'])->name("delete_instansi");
 

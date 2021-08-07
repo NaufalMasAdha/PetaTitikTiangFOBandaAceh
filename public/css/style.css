@@ -2,7 +2,8 @@
   display: block;
 }
 
-thead a {
+thead a,
+thead {
   font-weight: bold;
   color: rgb(37, 37, 37);
 }
