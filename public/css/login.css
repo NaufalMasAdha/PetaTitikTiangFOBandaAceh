@@ -68,7 +68,7 @@ h1 {
 .form-login {
   opacity: 0;
   animation: fadeX 1s;
-  animation-delay: 1s;
+  /* animation-delay: 1s; */
   animation-fill-mode: forwards;
   margin: 10% auto;
   width: 80%;

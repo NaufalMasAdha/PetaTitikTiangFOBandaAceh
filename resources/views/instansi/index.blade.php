@@ -48,11 +48,11 @@ Instansi") @section('nav-menu')
 <div class="row">
   @if ($message = Session::get('success'))
   <div class="col-12">
-    <div class="alert alert-success">
+    <div class="alert alert-success my-3">
       {{ $message }}
     </div>
     @endif @if ($message = Session::get('deleted'))
-    <div class="alert alert-danger">
+    <div class="alert alert-danger my-3">
       {{ $message }}
     </div>
   </div>
@@ -64,10 +64,10 @@ Instansi") @section('nav-menu')
           <td>#</td>
           <td>@sortablelink('nama','Nama Intansi')</td>
           <td>@sortablelink('alamat','Alamat')</td>
-          <td>@sortablelink('no_hp', 'No. HP')</td>
-          <td>@sortablelink('latitude', 'Latitude')</td>
-          <td>@sortablelink('longitude', 'Longitude')</td>
-          <td><i class="float-right fa fa-user-cog"></i></td>
+          <td>No. HP</td>
+          <td>Latitude</td>
+          <td>Longitude</td>
+          <td><i class="bi bi-gear"></i></td>
         </tr>
       </thead>
 
@@ -78,20 +78,35 @@ Instansi") @section('nav-menu')
         </tr>
         @endif
         <!--  -->
-        @foreach($instansis as $i)
+        @foreach($instansis as $in)
         <tr>
           <td>{{ $i++ }}</td>
-          <td>{{$i->nama}}</td>
-          <td>{{$i->alamat}}</td>
-          <td>{{$i->no_hp}}</td>
-          <td>{{$i->latitide}}</td>
-          <td>{{$i->longitude}}</td>
+          <td>{{$in->nama}}</td>
+          <td>{{$in->alamat}}</td>
+          <td>{{$in->no_hp}}</td>
+          <td>{{$in->latitude}}</td>
+          <td>{{$in->longitude}}</td>
           <td>
-            <a
-              class="btn btn-sm btn-primary float-right"
-              href="{{route ('edit_instansi', $i->id)}}"
-              >EDIT</a
+            <form
+              class="d-none"
+              action="{{route ('delete_instansi',$instansi->id)}}"
+              method="POST"
             >
+              <button
+                id="del-btn"
+                type="submit"
+                class="btn btn-outline-danger w-100"
+                onclick="return confirm('Hapus data ini?')"
+              ></button>
+              @csrf @method('delete')
+            </form>
+            <a class="me-3" href="{{route ('edit_instansi', $i->id)}}"
+              ><i class="bi bi-pencil-square"></i
+            ></a>
+
+            <a onclick="document.getElementById('del-btn').click()" href="#"
+              ><i class="bi bi-trash"></i
+            ></a>
           </td>
         </tr>
         @endforeach

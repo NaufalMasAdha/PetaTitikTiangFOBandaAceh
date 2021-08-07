@@ -1,13 +1,3 @@
-.map {
-  position: relative;
-  height: 85vh;
-  width: 100%;
-  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.06);
-  border-radius: 4px;
-  padding: 2%;
-  background-color: white;
-}
-
 .filter {
   border: none;
   position: absolute;
@@ -16,13 +6,20 @@
 }
 .gnw-map {
   width: 100%;
-  border-radius: 4px 80px 4px 4px;
+  border-radius: 4px 50px 4px 4px;
 }
 
 .gnw-map-service__osm {
-  border-radius: 4px 80px 4px 4px;
+  border-radius: 4px 50px 4px 4px;
 }
 
 .gnw-map-service {
   height: 100% !important;
+}
+
+.white-container {
+  height: 85vh;
+  width: 100%;
+  margin: 0;
+  padding: 1%;
 }

@@ -91,17 +91,6 @@
           value="SUBMIT"
         />
       </form>
-
-      <form action="{{route ('admin_delete',$user->id)}}" method="POST">
-        @csrf @method('delete')
-        <button
-          type="submit"
-          class="btn btn-outline-danger w-100"
-          onclick="return confirm('Hapus akun ini?')"
-        >
-          HAPUS USER INI
-        </button>
-      </form>
     </div>
   </div>
 </div>

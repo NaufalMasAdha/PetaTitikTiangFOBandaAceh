@@ -30,7 +30,7 @@ FO") @section('nav-menu')
         onkeyup="search()"
         class="form-control"
         type="text"
-        placeholder="Cari nama Tiang"
+        placeholder="Cari alamat tiang"
         aria-label="Search"
       />
     </form>
@@ -48,11 +48,11 @@ FO") @section('nav-menu')
 <div class="row">
   @if ($message = Session::get('success'))
   <div class="col-12">
-    <div class="alert alert-success">
+    <div class="alert alert-success my-3">
       {{ $message }}
     </div>
-    @endif @if ($message = Session::get('deleted'))
-    <div class="alert alert-danger">
+    @elseif ($message = Session::get('deleted'))
+    <div class="alert alert-danger my-3">
       {{ $message }}
     </div>
   </div>
@@ -62,13 +62,13 @@ FO") @section('nav-menu')
       <thead>
         <tr>
           <td>#</td>
-          <td>@sortablelink('alamat','Alamat')</td>
+          <td>Alamat</td>
           <td>@sortablelink('tahun_pembangunan','Tahun Pembangunan')</td>
           <td>@sortablelink('tinggi', 'Tinggi')</td>
           <td>@sortablelink('tipe', 'Tipe')</td>
-          <td>@sortablelink('latitude', 'Latitude')</td>
-          <td>@sortablelink('longitude', 'Longitude')</td>
-          <td><i class="float-right fa fa-user-cog"></i></td>
+          <td>Latitude</td>
+          <td>Longitude</td>
+          <td><i class="bi bi-gear"></i></td>
         </tr>
       </thead>
 
@@ -79,21 +79,36 @@ FO") @section('nav-menu')
         </tr>
         @endif
         <!--  -->
-        @foreach($tiangs as $i)
+        @foreach($tiangs as $tiang)
         <tr>
           <td>{{ $i++ }}</td>
-          <td>{{$i->alamat}}</td>
-          <td>{{$i->tahun_pembangunan}}</td>
-          <td>{{$i->tipe}}</td>
-          <td>{{$i->tinggi}}</td>
-          <td>{{$i->latitide}}</td>
-          <td>{{$i->longitude}}</td>
+          <td>{{$tiang->alamat}}</td>
+          <td>{{$tiang->tahun_pembangunan}}</td>
+          <td>{{$tiang->tinggi}}</td>
+          <td>{{$tiang->tipe}}</td>
+          <td>{{$tiang->latitude}}</td>
+          <td>{{$tiang->longitude}}</td>
           <td>
-            <a
-              class="btn btn-sm btn-primary float-right"
-              href="{{route ('edit_Tiang', $i->id)}}"
-              >EDIT</a
+            <form
+              class="d-none"
+              action="{{route ('delete_tiang',$tiang->id)}}"
+              method="POST"
             >
+              <button
+                id="del-btn"
+                type="submit"
+                class="btn btn-outline-danger w-100"
+                onclick="return confirm('Hapus data ini?')"
+              ></button>
+              @csrf @method('delete')
+            </form>
+            <a class="me-3" href="{{route ('edit_tiang', $tiang->id)}}"
+              ><i class="bi bi-pencil-square"></i>
+            </a>
+
+            <a onclick="document.getElementById('del-btn').click()" href="#"
+              ><i class="bi bi-trash"></i
+            ></a>
           </td>
         </tr>
         @endforeach

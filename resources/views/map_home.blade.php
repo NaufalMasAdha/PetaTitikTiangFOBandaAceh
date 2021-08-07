@@ -10,7 +10,7 @@
 <!-- Section menu di sidebar -->
 @section('nav-menu')
 <div class="nav_list">
-  <a href="{{ route('daftar_tiang') }}" class="nav_link active">
+  <a href="{{ route('daftar_tiang') }}" class="nav_link">
     <i class="bx bx-current-location nav_icon"></i>
     <span class="nav_name">Daftar Tiang FO</span>
   </a>
