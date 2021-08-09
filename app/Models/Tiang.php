@@ -11,14 +11,14 @@ class Tiang extends Model
     use HasFactory;
     use Sortable;
 
-     protected $fillable = [
-        'alamat',
-        'tahun_pembangunan',
-        'tinggi',
-        'tipe',
-        'latitude',
-        'longitude',
-    ];
+    protected $fillable = [
+    'alamat',
+    'tahun_pembangunan',
+    'tinggi',
+    'tipe',
+    'latitude',
+    'longitude',
+];
 
     public $sortable = [   
         'tahun_pembangunan',

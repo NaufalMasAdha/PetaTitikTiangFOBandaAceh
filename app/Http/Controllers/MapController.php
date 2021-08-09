@@ -29,7 +29,6 @@ class MapController extends Controller
 
      // Bagian CRUD Tiang
     public function index_tiang(Tiang $tiang){
-        // $tiangs = Tiang::paginate(8);
         $tiangs = $tiang->sortable()->paginate(8);
         return view('map.index', ['tiangs' => $tiangs, 'i' => 1]);
     }
@@ -95,7 +94,7 @@ class MapController extends Controller
 
     // Bagian CRUD instansi
     public function index_instansi(Instansi $instansi){
-        $instansis = Instansi::paginate(8);
+        $instansis = $instansi->sortable()->paginate(8);
         return view('instansi.index', ['instansis' => $instansis, 'i' => 1]);
     }
 
@@ -120,7 +119,7 @@ class MapController extends Controller
             'latitude' => $request->latitude,
             'longitude' => $request->longitude
         ]);
-        return redirect()->route('store_instansi')->with(['success' => 'Instansi berhasil ditambahkan']);
+        return redirect()->route('daftar_instansi')->with(['success' => 'Instansi berhasil ditambahkan']);
     }
 
     public function edit_instansi( $id){

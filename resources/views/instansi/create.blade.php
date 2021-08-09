@@ -18,5 +18,120 @@
 <!--  -->
 
 @section('content')
-<h1>Disini nanti ada form tambah tiang dan upload csv</h1>
+<div class="row">
+  <div class="col-12 col-md-4 mr-3">
+    <form class="form-group" method="POST" action="{{route('store_instansi')}}">
+      @method('post')
+      <!--  -->
+      @csrf
+      <div class="form-group my-3">
+        <label for="nama">Nama Instansi </label>
+        <input
+          autocomplete="off"
+          class="form-control @error('nama') is-invalid @enderror"
+          type="text"
+          name="nama"
+          id="nama"
+          value="{{old('nama')}}"
+        />
+        @error('nama')
+        <span class="text-danger" role="alert">
+          {{ $message }}
+        </span>
+        @enderror
+      </div>
+
+      <div class="form-group">
+        <label for="alamat">Alamat </label>
+        <input
+          autocomplete="off"
+          class="form-control @error('alamat') is-invalid @enderror"
+          type="text"
+          name="alamat"
+          id="alamat"
+          value="{{old('alamat')}}"
+        />
+        @error('alamat')
+        <span class="text-danger" role="alert">
+          {{ $message }}
+        </span>
+        @enderror
+      </div>
+
+      <div class="form-group my-3">
+        <label for="no_hp">No. HP </label>
+        <input
+          autocomplete="off"
+          class="form-control @error('no_hp') is-invalid @enderror"
+          type="tel"
+          name="no_hp"
+          id="no_hp"
+          value="{{ old('no_hp') }}"
+        />
+        @error('no_hp')
+        <span class="text-danger" role="alert">
+          {{ $message }}
+        </span>
+        @enderror
+      </div>
+
+      <div class="form-group my-3">
+        <label for="latitude">Latitude </label>
+        <input
+          autocomplete="off"
+          class="form-control @error('latitude') is-invalid @enderror"
+          type="text"
+          name="latitude"
+          id="latitude"
+          value="{{old('latitude')}}"
+        />
+        @error('latitude')
+        <span class="text-danger" role="alert">
+          {{ $message }}
+        </span>
+        @enderror
+      </div>
+
+      <div class="form-group my-3">
+        <label for="longitude">Longitude </label>
+        <input
+          autocomplete="off"
+          class="form-control @error('longitude') is-invalid @enderror"
+          type="text"
+          name="longitude"
+          id="longitude"
+          value="{{old('longitude')}}"
+        />
+        @error('longitude')
+        <span class="text-danger" role="alert">
+          {{ $message }}
+        </span>
+        @enderror
+      </div>
+      <input
+        class="btn btn-primary mt-3 w-100"
+        type="submit"
+        value="Tambah Instansi"
+      />
+    </form>
+  </div>
+  <div class="col-12 col-md-4 p-3 my-auto text-center">
+    <p class="text-secondary">atau</p>
+  </div>
+  <div class="col-12 col-md-4 my-auto">
+    <p>Upload File CSV</p>
+    <form
+      class="form-group"
+      method="POST"
+      action="{{route('store_csv_instansi')}}"
+    >
+      <input class="form-control" type="file" name="csv" id="csv" />
+      <input class="btn btn-primary my-3 w-100" type="submit" value="Upload" />
+    </form>
+
+    <a class="text-center" href="{{ asset('example-instansi.xlsx') }}" download
+      ><i class="bi bi-file-earmark-arrow-down"> example.csv </i></a
+    >
+  </div>
+</div>
 @endsection

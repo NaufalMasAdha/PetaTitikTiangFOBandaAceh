@@ -128,7 +128,11 @@ FO") @section('nav-menu')
   </div>
   <div class="col-12 col-md-4 my-auto">
     <p>Upload File CSV</p>
-    <form class="form-group" method="POST" action="{{route('admin_store')}}">
+    <form
+      class="form-group"
+      method="POST"
+      action="{{route('store_csv_tiang')}}"
+    >
       <input class="form-control" type="file" name="csv" id="csv" />
       <input class="btn btn-primary my-3 w-100" type="submit" value="Upload" />
     </form>

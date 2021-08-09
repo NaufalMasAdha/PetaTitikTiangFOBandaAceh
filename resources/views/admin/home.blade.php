@@ -17,7 +17,7 @@
 <!--  -->
 @section('content')
 <div class="row">
-  <div class="col-6 col-md-4">
+  <div class="col-8 col-md-4 mb-2">
     <!-- Search form -->
     <form action="">
       <input
@@ -30,10 +30,10 @@
       />
     </form>
   </div>
-  <div class="col-6 col-md-3">
+  <div class="col mb-2">
     <a href="{{ route('admin_create') }}" class="btn btn-dark"
-      ><i class="fa fa-user-plus"></i> Tambah User</a
-    >
+      ><i class="fa fa-user-plus"></i
+    ></a>
   </div>
   <div class="col-12 col-md-3">
     {!! $users->links() !!}

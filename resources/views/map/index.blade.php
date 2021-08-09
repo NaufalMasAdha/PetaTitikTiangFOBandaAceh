@@ -22,7 +22,7 @@ FO") @section('nav-menu')
 <!--  -->
 @section('content')
 <div class="row">
-  <div class="col-6 col-md-4">
+  <div class="col-8 col-md-4 mb-2">
     <!-- Search form -->
     <form action="">
       <input
@@ -35,10 +35,10 @@ FO") @section('nav-menu')
       />
     </form>
   </div>
-  <div class="col-6 col-md-3">
+  <div class="col mb-2">
     <a href="{{ route('tambah_tiang') }}" class="btn btn-dark"
-      ><i class="fa fa-Tiang-plus"></i> Tambah Tiang</a
-    >
+      ><i class="bi bi-plus-square"></i
+    ></a>
   </div>
   <div class="col-12 col-md-3">
     {!! $tiangs->links() !!}
@@ -82,13 +82,15 @@ FO") @section('nav-menu')
         @foreach($tiangs as $tiang)
         <tr>
           <td>{{ $i++ }}</td>
-          <td>{{$tiang->alamat}}</td>
+          <td>
+            {{$tiang->alamat}}
+          </td>
           <td>{{$tiang->tahun_pembangunan}}</td>
           <td>{{$tiang->tinggi}}</td>
           <td>{{$tiang->tipe}}</td>
           <td>{{$tiang->latitude}}</td>
           <td>{{$tiang->longitude}}</td>
-          <td>
+          <td class="d-flex">
             <form
               class="d-none"
               action="{{route ('delete_tiang',$tiang->id)}}"

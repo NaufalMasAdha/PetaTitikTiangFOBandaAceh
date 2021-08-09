@@ -22,7 +22,7 @@ Instansi") @section('nav-menu')
 <!--  -->
 @section('content')
 <div class="row">
-  <div class="col-6 col-md-4">
+  <div class="col-8 col-md-4 mb-2">
     <!-- Search form -->
     <form action="">
       <input
@@ -35,10 +35,10 @@ Instansi") @section('nav-menu')
       />
     </form>
   </div>
-  <div class="col-6 col-md-3">
+  <div class="col mb-2">
     <a href="{{ route('tambah_instansi') }}" class="btn btn-dark"
-      ><i class="fa fa-instansi-plus"></i> Tambah Instansi</a
-    >
+      ><i class="bi bi-plus-square"></i
+    ></a>
   </div>
   <div class="col-12 col-md-3">
     {!! $instansis->links() !!}
@@ -89,7 +89,7 @@ Instansi") @section('nav-menu')
           <td>
             <form
               class="d-none"
-              action="{{route ('delete_instansi',$instansi->id)}}"
+              action="{{route ('delete_instansi',$in->id)}}"
               method="POST"
             >
               <button
@@ -100,7 +100,7 @@ Instansi") @section('nav-menu')
               ></button>
               @csrf @method('delete')
             </form>
-            <a class="me-3" href="{{route ('edit_instansi', $i->id)}}"
+            <a class="me-3" href="{{route ('edit_instansi', $in->id)}}"
               ><i class="bi bi-pencil-square"></i
             ></a>
 
