@@ -20,6 +20,7 @@ class CreateInstansisTable extends Migration
             $table->string('no_hp');
             $table->string('latitude');
             $table->string('longitude');
+            $table->timestamps();
         });
     }
 

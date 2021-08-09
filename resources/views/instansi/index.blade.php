@@ -89,7 +89,7 @@ Instansi") @section('nav-menu')
           <td>
             <form
               class="d-none"
-              action="{{route ('delete_instansi',$instansi->id)}}"
+              action="{{route ('delete_instansi',$in->id)}}"
               method="POST"
             >
               <button
@@ -100,7 +100,7 @@ Instansi") @section('nav-menu')
               ></button>
               @csrf @method('delete')
             </form>
-            <a class="me-3" href="{{route ('edit_instansi', $i->id)}}"
+            <a class="me-3" href="{{route ('edit_instansi', $in->id)}}"
               ><i class="bi bi-pencil-square"></i
             ></a>
 

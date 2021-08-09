@@ -11,6 +11,15 @@ class Instansi extends Model
     use HasFactory;
     use Sortable;
 
+     protected $fillable = [
+        'nama',
+        'alamat',
+        'no_hp',
+        'latitude',
+        'longitude',
+    ];
+
+
         public $sortable = [   
         'nama',
         'alamat',
