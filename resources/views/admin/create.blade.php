@@ -72,7 +72,7 @@
     Role Teknisi dapat melakukan modifikasi pada website <br />
     Password default untuk setiap user:
     <strong>
-      12345678
+      diskominfotik
     </strong>
   </div>
 </div>

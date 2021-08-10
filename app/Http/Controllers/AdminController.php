@@ -31,7 +31,7 @@ class AdminController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'role' => $request->role,
-            'password' => bcrypt("diskominfo")
+            'password' => bcrypt("diskominfotik")
         ]);
 
         return redirect()->route('admin_home')->with(['success' => 'User berhasil ditambahkan']);

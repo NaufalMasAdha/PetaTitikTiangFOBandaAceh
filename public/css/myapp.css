@@ -36,6 +36,9 @@ body {
   transition: 0.5s;
 }
 
+#username {
+  font-weight: bold;
+}
 a {
   text-decoration: none;
 }

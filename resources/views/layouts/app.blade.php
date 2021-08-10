@@ -38,10 +38,14 @@
         <div class="header_img">
           <img src="{{ asset('assets/img/logo.png') }}" alt="profile-pic" />
         </div>
-        <span>
-          {{ Auth::user()->name }} - {{ Auth::user()->role }}
+        <span class="d-block">
+          <label id="username">
+            {{ Auth::user()->name }}
+          </label>
           <br />
-          {{ Auth::user()->email}}
+          <label id="email">
+            {{ Auth::user()->email}}
+          </label>
         </span>
       </div>
     </header>

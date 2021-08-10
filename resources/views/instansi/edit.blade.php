@@ -29,7 +29,7 @@ Instansi") @section('nav-menu')
       <!--  -->
       @csrf
       <div class="form-group my-3">
-        <label for="nama">nama </label>
+        <label for="nama">Nama Instansi </label>
         <input
           autocomplete="off"
           class="form-control @error('nama') is-invalid @enderror"
