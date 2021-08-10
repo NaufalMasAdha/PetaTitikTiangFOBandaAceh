@@ -131,9 +131,11 @@ FO") @section('nav-menu')
     <form
       class="form-group"
       method="POST"
-      action="{{route('store_csv_tiang')}}"
+      enctype="multipart/form-data"
+      action="{{ route('import') }}"
     >
-      <input class="form-control" type="file" name="csv" id="csv" />
+      @csrf
+      <input required class="form-control" type="file" name="file" id="csv" />
       <input class="btn btn-primary my-3 w-100" type="submit" value="Upload" />
     </form>
 

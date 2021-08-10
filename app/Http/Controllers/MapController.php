@@ -7,7 +7,7 @@ use App\Models\Instansi;
 use App\Models\Tiang; 
 class MapController extends Controller
 {
-    public function index(){
+       public function index(){
 
         $tiang = Tiang::all();
         $instansi = Instansi::all();
@@ -50,7 +50,7 @@ class MapController extends Controller
 
      // Bagian CRUD Tiang
     public function index_tiang(Tiang $tiang){
-        $tiangs = $tiang->sortable()->paginate(8);
+        $tiangs = $tiang->sortable()->paginate(20);
         return view('map.index', ['tiangs' => $tiangs, 'i' => 1]);
     }
 
@@ -115,7 +115,7 @@ class MapController extends Controller
 
     // Bagian CRUD instansi
     public function index_instansi(Instansi $instansi){
-        $instansis = $instansi->sortable()->paginate(8);
+        $instansis = $instansi->sortable()->paginate(20);
         return view('instansi.index', ['instansis' => $instansis, 'i' => 1]);
     }
 
