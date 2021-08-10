@@ -3,7 +3,7 @@
 @section('title','Tambah Instansi') @section('subtitle', "Tambah Instansi")
 @section('nav-menu')
 <div class="nav_list">
-  <a href="{{ route('daftar_tiang') }}" class="nav_link">
+  <a href="{{ route('tiang') }}" class="nav_link">
     <i class="bx bx-current-location nav_icon"></i>
     <span class="nav_name">Daftar Tiang FO</span>
   </a>
@@ -27,6 +27,7 @@
       <div class="form-group my-3">
         <label for="nama">Nama Instansi </label>
         <input
+          onkeyup="isInputEmpty()"
           autocomplete="off"
           class="form-control @error('nama') is-invalid @enderror"
           type="text"
@@ -44,6 +45,7 @@
       <div class="form-group">
         <label for="alamat">Alamat </label>
         <input
+          onkeyup="isInputEmpty()"
           autocomplete="off"
           class="form-control @error('alamat') is-invalid @enderror"
           type="text"
@@ -61,6 +63,7 @@
       <div class="form-group my-3">
         <label for="no_hp">No. HP </label>
         <input
+          onkeyup="isInputEmpty()"
           autocomplete="off"
           class="form-control @error('no_hp') is-invalid @enderror"
           type="tel"
@@ -78,6 +81,7 @@
       <div class="form-group my-3">
         <label for="latitude">Latitude </label>
         <input
+          onkeyup="isInputEmpty()"
           autocomplete="off"
           class="form-control @error('latitude') is-invalid @enderror"
           type="text"
@@ -95,6 +99,7 @@
       <div class="form-group my-3">
         <label for="longitude">Longitude </label>
         <input
+          onkeyup="isInputEmpty()"
           autocomplete="off"
           class="form-control @error('longitude') is-invalid @enderror"
           type="text"
@@ -109,29 +114,11 @@
         @enderror
       </div>
       <input
-        class="btn btn-primary mt-3 w-100"
+        class="btn btn-primary mt-3 w-100 disabled btn-secondary"
         type="submit"
         value="Tambah Instansi"
       />
     </form>
-  </div>
-  <div class="col-12 col-md-4 p-3 my-auto text-center">
-    <p class="text-secondary">atau</p>
-  </div>
-  <div class="col-12 col-md-4 my-auto">
-    <p>Upload File CSV</p>
-    <form
-      class="form-group"
-      method="POST"
-      action="{{route('store_csv_instansi')}}"
-    >
-      <input class="form-control" type="file" name="csv" id="csv" />
-      <input class="btn btn-primary my-3 w-100" type="submit" value="Upload" />
-    </form>
-
-    <a class="text-center" href="{{ asset('example-instansi.xlsx') }}" download
-      ><i class="bi bi-file-earmark-arrow-down"> example.csv </i></a
-    >
   </div>
 </div>
 @endsection

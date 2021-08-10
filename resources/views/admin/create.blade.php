@@ -22,6 +22,7 @@
       <div class="form-group my-3">
         <label for="nama">Nama </label>
         <input
+          onkeyup="isInputEmpty()"
           autocomplete="off"
           class="form-control @error('name') is-invalid @enderror"
           type="text"
@@ -35,7 +36,7 @@
         </span>
         @enderror
       </div>
-      <div class="form-group my-3">
+      <div class="form-group my-3" onkeyup="isInputEmpty()">
         <label for="email">Email </label>
         <input
           autocomplete="off"
@@ -60,7 +61,7 @@
       </div>
 
       <input
-        class="btn btn-primary my-3 w-100"
+        class="btn btn-primary my-3 w-100 disabled btn-secondary"
         type="submit"
         value="TAMBAH USER"
       />

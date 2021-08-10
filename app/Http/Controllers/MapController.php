@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Instansi; 
 use App\Models\Tiang; 
+use DB;
 class MapController extends Controller
 {
        public function index(){
@@ -48,14 +49,21 @@ class MapController extends Controller
         return view('map_home', ['map' => $map_center]);
     }
 
-     // Bagian CRUD Tiang
-    public function index_tiang(Tiang $tiang){
-        $tiangs = $tiang->sortable()->paginate(20);
-        return view('map.index', ['tiangs' => $tiangs, 'i' => 1]);
+    // Bagian CRUD Tiang
+    public function tiang(Tiang $tiang){
+        $i = 1;
+        $data = Tiang::select('tahun_pembangunan',DB::raw('count(*) as total'))->groupBy('tahun_pembangunan')->get();
+        return view('tiang.tiang', ['data' => $data, 'i' => $i]);
+
     }
 
-    public function tambah_tiang(){
-        return view('map.create');
+    public function daftar_tiang($tahun, Tiang $tiang){
+        $tiangs = $tiang->where('tahun_pembangunan', $tahun)->sortable()->paginate(20);
+        return view('tiang.index', ['tiangs' => $tiangs,'tahun' => $tahun, 'i' => 1]);
+    }
+
+    public function tambah_tiang($tahun){
+        return view('tiang.create',['tahun' => $tahun]);
     }
 
     public function store_tiang(Request $request){
@@ -77,12 +85,12 @@ class MapController extends Controller
             'latitude' => $request->latitude,
             'longitude' => $request->longitude
         ]);
-        return redirect()->route('daftar_tiang')->with(['success' => 'Tiang berhasil ditambahkan']);
+        return redirect()->route('daftar_tiang',$request->tahun_pembangunan)->with(['success' => 'Tiang berhasil ditambahkan']);
     }
 
     public function edit_tiang( $id){
         $tiang = Tiang::findOrFail($id);
-        return view("map.edit", ['tiang'=>$tiang]);
+        return view("tiang.edit", ['tiang'=>$tiang]);
     }
 
     public function update_tiang(Request $request ,$id){
@@ -104,17 +112,23 @@ class MapController extends Controller
             'latitude' => $request->latitude,
             'longitude' => $request->longitude
         ]);
-        return redirect()->route('daftar_tiang')->with(['success' => 'Tiang berhasil diperbarui']);
+        return redirect()->route('tiang')->with(['success' => 'Tiang berhasil diperbarui']);
     }
     
     public function delete_tiang($id){
         $tiang = Tiang::findOrFail($id);
         $tiang->delete();
-        return redirect()->route('daftar_tiang')->with('deleted', 'Tiang dengan ID : '. $id .' telah dihapus');
+        return back()->with('deleted', 'Tiang dengan ID : '. $id .' telah dihapus');
+    }
+
+    public function delete_tiang_grup($tahun){
+        $tiang = Tiang::where('tahun_pembangunan', $tahun)->get();
+        $tiang->each->delete();
+        return redirect()->route('tiang')->with('deleted', 'Tiang ('. $tahun .') telah dihapus');
     }
 
     // Bagian CRUD instansi
-    public function index_instansi(Instansi $instansi){
+    public function daftar_instansi(Instansi $instansi){
         $instansis = $instansi->sortable()->paginate(20);
         return view('instansi.index', ['instansis' => $instansis, 'i' => 1]);
     }

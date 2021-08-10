@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function index(User $user){
+    public function daftar_user(User $user){
         $users = $user->where('role', '!=','Admin')->sortable()->paginate(8);
         return view("admin.home",['users' => $users, 'i' => 1]);
     }

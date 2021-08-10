@@ -79,6 +79,7 @@
 
                 <div class="col-12">
                   <input
+                    onkeyup="isInputEmpty()"
                     id="password"
                     type="password"
                     class="form-control @error('password') is-invalid @enderror"
@@ -112,7 +113,10 @@
 
               <div class="form-group">
                 <div class="col-md-12">
-                  <button type="submit" class="btn btn-dark">
+                  <button
+                    type="submit"
+                    class="btn btn-dark disabled btn-secondary"
+                  >
                     {{ __("Masuk") }}
                   </button>
 
@@ -135,5 +139,6 @@
         </div>
       </div>
     </div>
+    <script src="{{ asset('js/script.js') }}"></script>
   </body>
 </html>

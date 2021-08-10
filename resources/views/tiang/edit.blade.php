@@ -1,9 +1,9 @@
 @extends('layouts.app')
 <!--  -->
-@section('title','FO Maps | Tambah Tiang FO') @section('subtitle', "Tambah Tiang
+@section('title','FO Maps | Edit Tiang FO') @section('subtitle', "Edit Tiang
 FO") @section('nav-menu')
 <div class="nav_list">
-  <a href="{{ route('daftar_tiang') }}" class="nav_link active">
+  <a href="{{ route('tiang') }}" class="nav_link active">
     <i class="bx bx-current-location nav_icon"></i>
     <span class="nav_name">Daftar Tiang FO</span>
   </a>
@@ -20,19 +20,24 @@ FO") @section('nav-menu')
 @section('content')
 <div class="row">
   <div class="col-12 col-md-4 mr-3">
-    <form class="form-group" method="POST" action="{{route('store_tiang')}}">
+    <form
+      class="form-group"
+      method="POST"
+      action="{{route('update_tiang', $tiang->id)}}"
+    >
       @method('post')
       <!--  -->
       @csrf
       <div class="form-group">
         <label for="alamat">Alamat </label>
         <input
+          onkeyup="isInputEmpty()"
           autocomplete="off"
           class="form-control @error('alamat') is-invalid @enderror"
           type="text"
           name="alamat"
           id="alamat"
-          value="{{old('alamat')}}"
+          value="{{ $tiang->alamat }}"
         />
         @error('alamat')
         <span class="text-danger" role="alert">
@@ -49,7 +54,7 @@ FO") @section('nav-menu')
           type="number"
           name="tahun_pembangunan"
           id="tahun_pembangunan"
-          value="{{old('tahun_pembangunan')}}"
+          value="{{ $tiang->tahun_pembangunan }}"
         />
         @error('tahun_pembangunan')
         <span class="text-danger" role="alert">
@@ -61,12 +66,13 @@ FO") @section('nav-menu')
       <div class="form-group my-3">
         <label for="tinggi">Tinggi </label>
         <input
+          onkeyup="isInputEmpty()"
           autocomplete="off"
           class="form-control @error('tinggi') is-invalid @enderror"
           type="number"
           name="tinggi"
           id="tinggi"
-          value="{{ old('tinggi') }}"
+          value="{{ $tiang->tinggi }}"
         />
         @error('tinggi')
         <span class="text-danger" role="alert">
@@ -78,6 +84,12 @@ FO") @section('nav-menu')
       <div class="input-group my-3">
         <label class="input-group-text" for="tipe">Tipe</label>
         <select class="form-select" id="tipe" name="tipe">
+          <option
+            value="{{$tiang->tipe}}"
+            selected
+            hidden
+            >{{$tiang->tipe}}</option
+          >
           <option value="1">1</option>
           <option value="2">2</option>
         </select>
@@ -86,12 +98,13 @@ FO") @section('nav-menu')
       <div class="form-group my-3">
         <label for="latitude">Latitude </label>
         <input
+          onkeyup="isInputEmpty()"
           autocomplete="off"
           class="form-control @error('latitude') is-invalid @enderror"
           type="text"
           name="latitude"
           id="latitude"
-          value="{{old('latitude')}}"
+          value="{{$tiang->latitude}}"
         />
         @error('latitude')
         <span class="text-danger" role="alert">
@@ -103,12 +116,13 @@ FO") @section('nav-menu')
       <div class="form-group my-3">
         <label for="longitude">Longitude </label>
         <input
+          onkeyup="isInputEmpty()"
           autocomplete="off"
           class="form-control @error('longitude') is-invalid @enderror"
           type="text"
           name="longitude"
           id="longitude"
-          value="{{old('longitude')}}"
+          value="{{$tiang->longitude}}"
         />
         @error('longitude')
         <span class="text-danger" role="alert">
@@ -116,32 +130,8 @@ FO") @section('nav-menu')
         </span>
         @enderror
       </div>
-      <input
-        class="btn btn-primary mt-3 w-100"
-        type="submit"
-        value="Tambah Tiang"
-      />
+      <input class="btn btn-primary mt-3 w-100" type="submit" value="Update" />
     </form>
-  </div>
-  <div class="col-12 col-md-4 p-3 my-auto text-center">
-    <p class="text-secondary">atau</p>
-  </div>
-  <div class="col-12 col-md-4 my-auto">
-    <p>Upload File CSV</p>
-    <form
-      class="form-group"
-      method="POST"
-      enctype="multipart/form-data"
-      action="{{ route('import') }}"
-    >
-      @csrf
-      <input required class="form-control" type="file" name="file" id="csv" />
-      <input class="btn btn-primary my-3 w-100" type="submit" value="Upload" />
-    </form>
-
-    <a class="text-center" href="{{ asset('example.xlsx') }}" download
-      ><i class="bi bi-file-earmark-arrow-down"> example.csv </i></a
-    >
   </div>
 </div>
 @endsection

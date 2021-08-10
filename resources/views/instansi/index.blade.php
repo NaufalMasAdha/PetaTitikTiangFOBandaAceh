@@ -3,7 +3,7 @@
 @section('title','FO Maps | Daftar Instansi') @section('subtitle', "Daftar
 Instansi") @section('nav-menu')
 <div class="nav_list">
-  <a href="{{ route('daftar_tiang') }}" class="nav_link">
+  <a href="{{ route('tiang') }}" class="nav_link">
     <i class="bx bx-current-location nav_icon"></i>
     <span class="nav_name">Daftar Tiang FO</span>
   </a>
@@ -46,17 +46,6 @@ Instansi") @section('nav-menu')
 </div>
 
 <div class="row">
-  @if ($message = Session::get('success'))
-  <div class="col-12">
-    <div class="alert alert-success my-3">
-      {{ $message }}
-    </div>
-    @endif @if ($message = Session::get('deleted'))
-    <div class="alert alert-danger my-3">
-      {{ $message }}
-    </div>
-  </div>
-  @endif
   <div class="col-12 table-responsive">
     <table id="myTable" class="table table-striped">
       <thead>

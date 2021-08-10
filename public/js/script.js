@@ -16,3 +16,31 @@ function search() {
     }
   }
 }
+
+function isInputEmpty() {
+  inputs = document.querySelectorAll("input");
+  submit = document.querySelector('[type="submit"]');
+  y = inputs.length;
+  x = 0;
+  console.log("y = " + y);
+  inputs.forEach((element) => {
+    if (element["value"].length > 0) {
+      y--;
+    }
+    if (element["value"].length == 0) {
+      y++;
+    }
+
+    if (0 == y) {
+      console.log("OK");
+      submit.classList.remove("disabled", "btn-secondary");
+    } else {
+      submit.classList.add("disabled", "btn-secondary");
+    }
+  });
+}
+
+function filed() {
+  submit = document.querySelector('[type="submit"]');
+  submit.classList.remove("disabled", "btn-secondary");
+}
