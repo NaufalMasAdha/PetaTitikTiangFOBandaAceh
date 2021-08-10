@@ -35,9 +35,21 @@ FO") @section('nav-menu')
       />
     </form>
   </div>
-  <div class="col mb-2">
-    <a href="{{ route('tambah_tiang') }}" class="btn btn-dark"
+  <div class="col-auto mb-2">
+    <a
+      title="Tambah Data"
+      href="{{ route('tambah_tiang') }}"
+      class="btn btn-dark"
       ><i class="bi bi-plus-square"></i
+    ></a>
+  </div>
+  <div class="col-auto mb-2">
+    <a
+      title="Export ke excel"
+      href="{{ route('export') }}"
+      class="btn btn-success"
+    >
+      <i class="bi bi-download"></i
     ></a>
   </div>
   <div class="col-12 col-md-3">

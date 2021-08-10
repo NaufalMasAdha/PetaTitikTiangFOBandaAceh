@@ -9,39 +9,18 @@ class MapController extends Controller
 {
     public function index(){
 
-        $tiang = Tiang::all();
-        $instansi = Instansi::all();
-
-        $markers = array();
-
-
-        foreach($tiang as $t){
-            array_push($markers, array(
-                'title' => $t->tahun_pembangunan,
-                'lat' => $t->latitude,
-                'lng' => $t->longitude,
-                // 'icon' => '/pin1.png',
-                'popup' => "
-                    <strong> Tiang $t->id </strong> ($t->tahun_pembangunan) <br>
-                    <strong> Tipe:  </strong> $t->tipe <br>
-                    <strong> Tinggi: </strong> $t->tinggi meter
-
-             "));
-        }
-
-        foreach($instansi as $i){
-            array_push($markers, array(
-                'title' => $i->nama,
-                'lat' => $i->latitude,
-                'lng' => $i->longitude,
-                // 'icon' => '/pin2.png',
-                'popup' => '<strong>' .$i->nama .'</strong>'));
-        }
+        $markers[] = array(
+        'title' => 'Tes',
+        'lat' => 5.573279429238394,
+        'lng' => 95.3455186237172,
+        'url' => 'https://google.com',
+        'icon' => 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+        'popup' => '<h3>Details</h3><p>Click <a target="_blank" href="https://google.com">here</a>.</p>',);
 
         $map_center = array(
-            'lat' => 5.553581817511479, 
-            'lng' => 95.31728569439134, 
-            'zoom' => 14,
+            'lat' => 5.573279429238394, 
+            'lng' => 95.3455186237172,
+            'zoom' => 13,
             'markers' => $markers
         );
 
@@ -50,7 +29,7 @@ class MapController extends Controller
 
      // Bagian CRUD Tiang
     public function index_tiang(Tiang $tiang){
-        $tiangs = $tiang->sortable()->paginate(8);
+        $tiangs = $tiang->sortable()->paginate(20);
         return view('map.index', ['tiangs' => $tiangs, 'i' => 1]);
     }
 
@@ -115,7 +94,7 @@ class MapController extends Controller
 
     // Bagian CRUD instansi
     public function index_instansi(Instansi $instansi){
-        $instansis = $instansi->sortable()->paginate(8);
+        $instansis = $instansi->sortable()->paginate(20);
         return view('instansi.index', ['instansis' => $instansis, 'i' => 1]);
     }
 
