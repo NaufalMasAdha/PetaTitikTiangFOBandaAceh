@@ -38,6 +38,7 @@
         class="d-none d-sm-flex profil"
         onclick="window.open('/profil', target='_blank')"
       >
+        @auth
         <div class="header_img">
           <img src="{{ asset('assets/img/logo.png') }}" alt="profile-pic" />
         </div>
@@ -50,6 +51,7 @@
             {{ Auth::user()->email}}
           </label>
         </span>
+        @endauth
       </div>
     </header>
     <div class="l-navbar" id="nav-bar">
@@ -58,14 +60,44 @@
           @if(Auth::user()->role == 'admin')
           <a href="{{ route('admin_home') }}" class="nav_logo">
             <i class="bx bx-map-alt nav_logo-icon"></i>
-            <span class="nav_logo-name">FO Maps</span>
+            <span class="nav_logo-name">FO Maps - Admin</span>
           </a>
           @else
           <a href="{{ route('map_home') }}" class="nav_logo">
             <i class="bx bx-map-alt nav_logo-icon"></i>
             <span class="nav_logo-name">FO Maps</span>
           </a>
-          @endif @yield('nav-menu')
+          @endif
+
+          <!--  -->
+          @if(Auth::user()->role == 'admin')
+          <div class="nav_list">
+            <a href="{{ route('admin_home') }}" class="nav_link active">
+              <i class="bx bx-group nav_icon"></i>
+              <span class="nav_name">Daftar User</span>
+            </a>
+          </div>
+          @elseif(Auth::user()->role == 'teknisi')
+          <div class="nav_list">
+            <a href="{{ route('tiang') }}" class="nav_link">
+              <i class="bx bx-current-location nav_icon"></i>
+              <span class="nav_name">Daftar Tiang FO</span>
+            </a>
+          </div>
+          <div class="nav_list">
+            <a href="{{ route('daftar_instansi') }}" class="nav_link">
+              <i class="bx bx-buildings nav_icon"></i>
+              <span class="nav_name">Daftar Instansi</span>
+            </a>
+          </div>
+          @elseif(Auth::user()->role === 'Pimpinan')
+          <div class="nav_list">
+            <a href="{{ route('map_home') }}" class="nav_link active">
+              <i class="bx bx-map-pin nav_icon"></i>
+              <span class="nav_name">Peta Tiang FO</span>
+            </a>
+          </div>
+          @endif
         </div>
         <a
           onclick="event.preventDefault();document.getElementById('logout-form').submit();"

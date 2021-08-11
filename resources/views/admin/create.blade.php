@@ -1,15 +1,7 @@
 @extends('layouts/app')
 <!--  -->
 @section('title','Admin | Tambah User') @section('subtitle', "Tambah User")
-<!--  -->
-@section('nav-menu')
-<div class="nav_list">
-  <a href="{{ route('admin_home') }}" class="nav_link active">
-    <i class="bx bx-grid-alt nav_icon"></i>
-    <span class="nav_name">Dashboard</span>
-  </a>
-</div>
-@endsection
+
 <!--  -->
 @section('content')
 
@@ -59,8 +51,8 @@
       <div class="input-group my-3">
         <label class="input-group-text" for="role">Role</label>
         <select class="form-select" id="role" name="role">
-          <option value="Pimpinan">Pimpinan</option>
-          <option value="Teknisi">Teknisi</option>
+          <option value="pimpinan">Pimpinan</option>
+          <option value="teknisi">Teknisi</option>
         </select>
       </div>
 
