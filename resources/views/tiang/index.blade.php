@@ -3,7 +3,7 @@
 @section('title','FO Maps | Daftar Tiang FO') @section('subtitle', "Daftar Tiang
 FO") @section('nav-menu')
 <div class="nav_list">
-  <a href="{{ route('daftar_tiang') }}" class="nav_link active">
+  <a href="{{ route('tiang') }}" class="nav_link active">
     <i class="bx bx-current-location nav_icon"></i>
     <span class="nav_name">Daftar Tiang FO</span>
   </a>
@@ -38,44 +38,25 @@ FO") @section('nav-menu')
   <div class="col-auto mb-2">
     <a
       title="Tambah Data"
-      href="{{ route('tambah_tiang') }}"
+      href="{{ route('tambah_tiang', $tahun) }}"
       class="btn btn-dark"
       ><i class="bi bi-plus-square"></i
     ></a>
   </div>
-  <div class="col-auto mb-2">
-    <a
-      title="Export ke excel"
-      href="{{ route('export') }}"
-      class="btn btn-success"
-    >
-      <i class="bi bi-download"></i
-    ></a>
-  </div>
+
   <div class="col-12 col-md-3">
     {!! $tiangs->links() !!}
   </div>
 </div>
 
 <div class="row">
-  @if ($message = Session::get('success'))
-  <div class="col-12">
-    <div class="alert alert-success my-3">
-      {{ $message }}
-    </div>
-    @elseif ($message = Session::get('deleted'))
-    <div class="alert alert-danger my-3">
-      {{ $message }}
-    </div>
-  </div>
-  @endif
   <div class="col-12 table-responsive">
     <table id="myTable" class="table table-striped">
       <thead>
         <tr>
           <td>#</td>
           <td>Alamat</td>
-          <td>@sortablelink('tahun_pembangunan','Tahun Pembangunan')</td>
+          <td>Tahun Pembangunan</td>
           <td>@sortablelink('tinggi', 'Tinggi')</td>
           <td>@sortablelink('tipe', 'Tipe')</td>
           <td>Latitude</td>

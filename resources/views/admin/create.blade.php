@@ -15,7 +15,12 @@
 
 <div class="row">
   <div class="col-12 col-md-4 border mr-3 p-3">
-    <form class="form-group" method="POST" action="{{route('admin_store')}}">
+    <form
+      onkeyup="isInputEmpty()"
+      class="form-group"
+      method="POST"
+      action="{{route('admin_store')}}"
+    >
       @method('post')
       <!--  -->
       @csrf
@@ -60,7 +65,7 @@
       </div>
 
       <input
-        class="btn btn-primary my-3 w-100"
+        class="btn btn-primary my-3 w-100 btn-secondary"
         type="submit"
         value="TAMBAH USER"
       />

@@ -3,7 +3,7 @@
 @section('title','FO Maps | Edit Tiang FO') @section('subtitle', "Edit Tiang
 FO") @section('nav-menu')
 <div class="nav_list">
-  <a href="{{ route('daftar_tiang') }}" class="nav_link active">
+  <a href="{{ route('tiang') }}" class="nav_link active">
     <i class="bx bx-current-location nav_icon"></i>
     <span class="nav_name">Daftar Tiang FO</span>
   </a>
@@ -21,6 +21,7 @@ FO") @section('nav-menu')
 <div class="row">
   <div class="col-12 col-md-4 mr-3">
     <form
+      onkeyup="isInputEmpty()"
       class="form-group"
       method="POST"
       action="{{route('update_tiang', $tiang->id)}}"
@@ -78,19 +79,21 @@ FO") @section('nav-menu')
         </span>
         @enderror
       </div>
-
-      <div class="input-group my-3">
-        <label class="input-group-text" for="tipe">Tipe</label>
-        <select class="form-select" id="tipe" name="tipe">
-          <option
-            value="{{$tiang->tipe}}"
-            selected
-            hidden
-            >{{$tiang->tipe}}</option
-          >
-          <option value="1">1</option>
-          <option value="2">2</option>
-        </select>
+      <div class="form-group">
+        <label for="tipe">Tipe </label>
+        <input
+          autocomplete="off"
+          class="form-control @error('tipe') is-invalid @enderror"
+          type="text"
+          name="tipe"
+          id="tipe"
+          value="{{ $tiang->tipe }}"
+        />
+        @error('tipe')
+        <span class="text-danger" role="alert">
+          {{ $message }}
+        </span>
+        @enderror
       </div>
 
       <div class="form-group my-3">

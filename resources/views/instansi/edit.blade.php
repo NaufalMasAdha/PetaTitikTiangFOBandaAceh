@@ -3,7 +3,7 @@
 @section('title','FO Maps | Edit Instansi') @section('subtitle', "Edit
 Instansi") @section('nav-menu')
 <div class="nav_list">
-  <a href="{{ route('daftar_tiang') }}" class="nav_link">
+  <a href="{{ route('tiang') }}" class="nav_link">
     <i class="bx bx-current-location nav_icon"></i>
     <span class="nav_name">Daftar Tiang FO</span>
   </a>
@@ -31,6 +31,7 @@ Instansi") @section('nav-menu')
       <div class="form-group my-3">
         <label for="nama">Nama Instansi </label>
         <input
+          onkeyup="isInputEmpty()"
           autocomplete="off"
           class="form-control @error('nama') is-invalid @enderror"
           type="text"
@@ -47,6 +48,7 @@ Instansi") @section('nav-menu')
       <div class="form-group my-3">
         <label for="alamat">Alamat </label>
         <input
+          onkeyup="isInputEmpty()"
           autocomplete="off"
           class="form-control @error('alamat') is-invalid @enderror"
           type="text"
@@ -64,6 +66,7 @@ Instansi") @section('nav-menu')
       <div class="form-group my-3">
         <label for="no_hp">No. HP </label>
         <input
+          onkeyup="isInputEmpty()"
           autocomplete="off"
           class="form-control @error('no_hp') is-invalid @enderror"
           type="tel"
@@ -81,6 +84,7 @@ Instansi") @section('nav-menu')
       <div class="form-group my-3">
         <label for="latitude">Latitude </label>
         <input
+          onkeyup="isInputEmpty()"
           autocomplete="off"
           class="form-control @error('latitude') is-invalid @enderror"
           type="text"
@@ -98,6 +102,7 @@ Instansi") @section('nav-menu')
       <div class="form-group my-3">
         <label for="longitude">Longitude </label>
         <input
+          onkeyup="isInputEmpty()"
           autocomplete="off"
           class="form-control @error('longitude') is-invalid @enderror"
           type="text"

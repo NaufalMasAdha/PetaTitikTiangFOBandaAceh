@@ -3,7 +3,7 @@
 @section('title','FO Maps | Tambah Tiang FO') @section('subtitle', "Tambah Tiang
 FO") @section('nav-menu')
 <div class="nav_list">
-  <a href="{{ route('daftar_tiang') }}" class="nav_link active">
+  <a href="{{ route('tiang') }}" class="nav_link active">
     <i class="bx bx-current-location nav_icon"></i>
     <span class="nav_name">Daftar Tiang FO</span>
   </a>
@@ -20,7 +20,12 @@ FO") @section('nav-menu')
 @section('content')
 <div class="row">
   <div class="col-12 col-md-4 mr-3">
-    <form class="form-group" method="POST" action="{{route('store_tiang')}}">
+    <form
+      onkeyup="isInputEmpty()"
+      class="form-group"
+      method="POST"
+      action="{{route('store_tiang')}}"
+    >
       @method('post')
       <!--  -->
       @csrf
@@ -44,18 +49,14 @@ FO") @section('nav-menu')
       <div class="form-group my-3">
         <label for="tahun_pembangunan">Tahun Pembangunan </label>
         <input
+          disabled
           autocomplete="off"
-          class="form-control @error('tahun_pembangunan') is-invalid @enderror"
-          type="number"
+          class="form-control"
+          type="text"
           name="tahun_pembangunan"
           id="tahun_pembangunan"
-          value="{{old('tahun_pembangunan')}}"
+          value="{{ $tahun }}"
         />
-        @error('tahun_pembangunan')
-        <span class="text-danger" role="alert">
-          {{ $message }}
-        </span>
-        @enderror
       </div>
 
       <div class="form-group my-3">
@@ -75,12 +76,21 @@ FO") @section('nav-menu')
         @enderror
       </div>
 
-      <div class="input-group my-3">
-        <label class="input-group-text" for="tipe">Tipe</label>
-        <select class="form-select" id="tipe" name="tipe">
-          <option value="1">1</option>
-          <option value="2">2</option>
-        </select>
+      <div class="form-group">
+        <label for="tipe">Tipe </label>
+        <input
+          autocomplete="off"
+          class="form-control @error('tipe') is-invalid @enderror"
+          type="text"
+          name="tipe"
+          id="tipe"
+          value="{{old('tipe')}}"
+        />
+        @error('tipe')
+        <span class="text-danger" role="alert">
+          {{ $message }}
+        </span>
+        @enderror
       </div>
 
       <div class="form-group my-3">
@@ -117,31 +127,11 @@ FO") @section('nav-menu')
         @enderror
       </div>
       <input
-        class="btn btn-primary mt-3 w-100"
+        class="btn btn-primary mt-3 w-100 btn-secondary"
         type="submit"
         value="Tambah Tiang"
       />
     </form>
-  </div>
-  <div class="col-12 col-md-4 p-3 my-auto text-center">
-    <p class="text-secondary">atau</p>
-  </div>
-  <div class="col-12 col-md-4 my-auto">
-    <p>Upload File CSV</p>
-    <form
-      class="form-group"
-      method="POST"
-      enctype="multipart/form-data"
-      action="{{ route('import') }}"
-    >
-      @csrf
-      <input required class="form-control" type="file" name="file" id="csv" />
-      <input class="btn btn-primary my-3 w-100" type="submit" value="Upload" />
-    </form>
-
-    <a class="text-center" href="{{ asset('example.xlsx') }}" download
-      ><i class="bi bi-file-earmark-arrow-down"> example.csv </i></a
-    >
   </div>
 </div>
 @endsection

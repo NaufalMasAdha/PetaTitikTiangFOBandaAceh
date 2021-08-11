@@ -1,8 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap");
 
-* {
-  font-family: "Montserrat", sans-serif;
+*,
+:-webkit-autofill::first-line {
+  font-family: "Montserrat", sans-serif !important;
 }
+
 @keyframes fadeY {
   from {
     opacity: 0;
@@ -80,11 +82,12 @@ h1 {
   margin-bottom: 5%;
 }
 
-.form-group {
+.form-group,
+.input-group {
   margin-bottom: 2%;
 }
 
-.form-group button {
+.form-group button[type="submit"] {
   display: flex;
   margin: 5% auto;
   border-radius: 10px;
@@ -94,9 +97,8 @@ h1 {
 
 .form-control {
   height: 40px;
-  border-radius: 10px !important;
-  background-color: #f1f5ff !important;
-  border: none !important;
+  border-radius: 10px 0 0 10px !important;
+  border-color: #777 !important;
 }
 
 .form-login h1 {

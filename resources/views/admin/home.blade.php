@@ -41,17 +41,6 @@
 </div>
 
 <div class="row">
-  <div class="col-12">
-    @if ($message = Session::get('success'))
-    <div class="alert alert-success my-3">
-      {{ $message }}
-    </div>
-    @endif @if ($message = Session::get('deleted'))
-    <div class="alert alert-danger my-3">
-      {{ $message }}
-    </div>
-    @endif
-  </div>
   <div class="col-12 table-responsive">
     <table id="myTable" class="table table-striped">
       <thead>

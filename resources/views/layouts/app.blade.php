@@ -10,17 +10,17 @@
     @yield('style')
 
     <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
     />
 
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
     />
+
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
@@ -34,7 +34,10 @@
         <span>@yield('subtitle')</span>
       </div>
 
-      <div class="d-none d-sm-flex">
+      <div
+        class="d-none d-sm-flex profil"
+        onclick="window.open('/profil', target='_blank')"
+      >
         <div class="header_img">
           <img src="{{ asset('assets/img/logo.png') }}" alt="profile-pic" />
         </div>
@@ -85,11 +88,60 @@
     <main class="main">
       <div class="container-fluid">
         <div class="white-container">
+          <div class="row">
+            <div class="col-12">
+              @if ($message = Session::get('success'))
+              <div
+                class="alert alert-success alert-dismissible my-2"
+                role="alert"
+              >
+                <strong> {{ $message }}</strong>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="alert"
+                  aria-label="Close"
+                ></button>
+              </div>
+              @elseif ($message = Session::get('deleted'))
+              <div
+                class="alert alert-warning alert-dismissible my-2"
+                role="alert"
+              >
+                <strong> {{ $message }}</strong>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="alert"
+                  aria-label="Close"
+                ></button>
+              </div>
+              @elseif ($message = Session::get('error'))
+              <div
+                class="alert alert-danger alert-dismissible my-2"
+                role="alert"
+              >
+                <strong> {{ $message }}</strong>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="alert"
+                  aria-label="Close"
+                ></button>
+              </div>
+              @endif
+            </div>
+          </div>
           @yield('content')
         </div>
       </div>
     </main>
     <script src="{{ asset('js/myscript.js') }}"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+      crossorigin="anonymous"
+    ></script>
     @yield('scripts')
   </body>
 </html>
