@@ -24,7 +24,7 @@
 <!--  -->
 
 <div class="row justify-content-between">
-  <div class="col-12 col-md-5">
+  <div class="col-12 col-md-6">
     <div class="table-responsive">
       <table class="table table-striped">
         <thead>
@@ -74,15 +74,15 @@
           @endforeach
         </tbody>
       </table>
-
-      <a
-        title="Export ke excel"
-        href="{{ route('export_tiang') }}"
-        class="btn btn-success @if(count($data) == 0) d-none @endif"
-      >
-        <i class="bi bi-download"></i> Export data</a
-      >
     </div>
+    <a
+      title="Export semua data ke excel"
+      href="{{ route('export_tiang') }}"
+      class="btn btn-success my-2 @if(count($data) == 0) d-none @endif"
+    >
+      <i class="bi bi-download"></i> Export data</a
+    >
+    <hr />
   </div>
 
   <div class="col-12 col-md-4 my-auto">
@@ -108,9 +108,9 @@
       </span>
       @enderror
       <input
-        class="btn btn-primary my-3 w-100 disabled btn-secondary"
+        class="btn btn-primary my-3 w-100 btn-secondary"
         type="submit"
-        value="Upload"
+        value="Import"
       />
     </form>
 

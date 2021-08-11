@@ -21,6 +21,7 @@ FO") @section('nav-menu')
 <div class="row">
   <div class="col-12 col-md-4 mr-3">
     <form
+      onkeyup="isInputEmpty()"
       class="form-group"
       method="POST"
       action="{{route('update_tiang', $tiang->id)}}"
@@ -31,7 +32,6 @@ FO") @section('nav-menu')
       <div class="form-group">
         <label for="alamat">Alamat </label>
         <input
-          onkeyup="isInputEmpty()"
           autocomplete="off"
           class="form-control @error('alamat') is-invalid @enderror"
           type="text"
@@ -66,7 +66,6 @@ FO") @section('nav-menu')
       <div class="form-group my-3">
         <label for="tinggi">Tinggi </label>
         <input
-          onkeyup="isInputEmpty()"
           autocomplete="off"
           class="form-control @error('tinggi') is-invalid @enderror"
           type="number"
@@ -80,25 +79,26 @@ FO") @section('nav-menu')
         </span>
         @enderror
       </div>
-
-      <div class="input-group my-3">
-        <label class="input-group-text" for="tipe">Tipe</label>
-        <select class="form-select" id="tipe" name="tipe">
-          <option
-            value="{{$tiang->tipe}}"
-            selected
-            hidden
-            >{{$tiang->tipe}}</option
-          >
-          <option value="1">1</option>
-          <option value="2">2</option>
-        </select>
+      <div class="form-group">
+        <label for="tipe">Tipe </label>
+        <input
+          autocomplete="off"
+          class="form-control @error('tipe') is-invalid @enderror"
+          type="text"
+          name="tipe"
+          id="tipe"
+          value="{{ $tiang->tipe }}"
+        />
+        @error('tipe')
+        <span class="text-danger" role="alert">
+          {{ $message }}
+        </span>
+        @enderror
       </div>
 
       <div class="form-group my-3">
         <label for="latitude">Latitude </label>
         <input
-          onkeyup="isInputEmpty()"
           autocomplete="off"
           class="form-control @error('latitude') is-invalid @enderror"
           type="text"
@@ -116,7 +116,6 @@ FO") @section('nav-menu')
       <div class="form-group my-3">
         <label for="longitude">Longitude </label>
         <input
-          onkeyup="isInputEmpty()"
           autocomplete="off"
           class="form-control @error('longitude') is-invalid @enderror"
           type="text"

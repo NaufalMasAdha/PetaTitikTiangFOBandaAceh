@@ -4,13 +4,19 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{{ asset('css/login.css') }}" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}" />
+
     <title>Login</title>
   </head>
   <body>
@@ -39,7 +45,11 @@
               width="120"
             />
             <h1>Login</h1>
-            <form method="POST" action="{{ route('login') }}">
+            <form
+              onkeyup="isInputEmpty()"
+              method="POST"
+              action="{{ route('login') }}"
+            >
               @csrf
 
               <div class="form-group">
@@ -78,22 +88,27 @@
                 >
 
                 <div class="col-12">
-                  <input
-                    onkeyup="isInputEmpty()"
-                    id="password"
-                    type="password"
-                    class="form-control @error('password') is-invalid @enderror"
-                    name="password"
-                    placeholder="Masukkan Password"
-                    required
-                    autocomplete="current-password"
-                  />
-
-                  @error('password')
-                  <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                  </span>
-                  @enderror
+                  <div class="input-group mb-3">
+                    <input
+                      type="password"
+                      class="form-control @error('password') invalid @enderror"
+                      placeholder="Kosongkan jika tidak ingin diubah"
+                      aria-label="password"
+                      aria-describedby="togglePassword"
+                      name="password"
+                      id="password"
+                    />
+                    <button
+                      class="btn btn-outline-secondary bi bi-eye-slash"
+                      type="button"
+                      id="togglePassword"
+                    ></button>
+                    @error('password')
+                    <span class="text-danger" role="alert">
+                      {{ $message }}
+                    </span>
+                    @enderror
+                  </div>
                 </div>
               </div>
 
@@ -113,10 +128,7 @@
 
               <div class="form-group">
                 <div class="col-md-12">
-                  <button
-                    type="submit"
-                    class="btn btn-dark disabled btn-secondary"
-                  >
+                  <button type="submit" class="btn btn-dark btn-secondary">
                     {{ __("Masuk") }}
                   </button>
 
@@ -139,6 +151,6 @@
         </div>
       </div>
     </div>
-    <script src="{{ asset('js/script.js') }}"></script>
+    <script src="{{ asset('js/myscript.js') }}"></script>
   </body>
 </html>

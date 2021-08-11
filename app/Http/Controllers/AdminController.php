@@ -47,7 +47,6 @@ class AdminController extends Controller
         $request->validate([
             'name' =>  'required',
             'email' => ['required',Rule::unique('users')->ignore($id)],
-            // 'email' => 'required|unique:users,name,except,id',
             'role' =>'required',
             'password' => 'nullable|min:6'
             

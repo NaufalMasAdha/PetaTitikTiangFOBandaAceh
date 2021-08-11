@@ -112,7 +112,7 @@ class MapController extends Controller
             'latitude' => $request->latitude,
             'longitude' => $request->longitude
         ]);
-        return redirect()->route('tiang')->with(['success' => 'Tiang berhasil diperbarui']);
+        return redirect()->route('daftar_tiang',$request->tahun_pembangunan)->with(['success' => 'Tiang berhasil diperbarui']);
     }
     
     public function delete_tiang($id){

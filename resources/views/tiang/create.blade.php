@@ -20,7 +20,12 @@ FO") @section('nav-menu')
 @section('content')
 <div class="row">
   <div class="col-12 col-md-4 mr-3">
-    <form class="form-group" method="POST" action="{{route('store_tiang')}}">
+    <form
+      onkeyup="isInputEmpty()"
+      class="form-group"
+      method="POST"
+      action="{{route('store_tiang')}}"
+    >
       @method('post')
       <!--  -->
       @csrf
@@ -122,7 +127,7 @@ FO") @section('nav-menu')
         @enderror
       </div>
       <input
-        class="btn btn-primary mt-3 w-100"
+        class="btn btn-primary mt-3 w-100 btn-secondary"
         type="submit"
         value="Tambah Tiang"
       />

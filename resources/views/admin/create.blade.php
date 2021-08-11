@@ -15,14 +15,18 @@
 
 <div class="row">
   <div class="col-12 col-md-4 border mr-3 p-3">
-    <form class="form-group" method="POST" action="{{route('admin_store')}}">
+    <form
+      onkeyup="isInputEmpty()"
+      class="form-group"
+      method="POST"
+      action="{{route('admin_store')}}"
+    >
       @method('post')
       <!--  -->
       @csrf
       <div class="form-group my-3">
         <label for="nama">Nama </label>
         <input
-          onkeyup="isInputEmpty()"
           autocomplete="off"
           class="form-control @error('name') is-invalid @enderror"
           type="text"
@@ -36,7 +40,7 @@
         </span>
         @enderror
       </div>
-      <div class="form-group my-3" onkeyup="isInputEmpty()">
+      <div class="form-group my-3">
         <label for="email">Email </label>
         <input
           autocomplete="off"
@@ -61,7 +65,7 @@
       </div>
 
       <input
-        class="btn btn-primary my-3 w-100 disabled btn-secondary"
+        class="btn btn-primary my-3 w-100 btn-secondary"
         type="submit"
         value="TAMBAH USER"
       />

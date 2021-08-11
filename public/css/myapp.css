@@ -17,6 +17,11 @@
   box-sizing: border-box;
 }
 
+*,
+:-webkit-autofill::first-line {
+  font-family: "Montserrat", sans-serif;
+}
+
 .white-container {
   position: relative;
   min-height: 85vh;
@@ -36,9 +41,15 @@ body {
   transition: 0.5s;
 }
 
+.profil:hover {
+  cursor: pointer;
+  background-color: #f5f6f8;
+}
+
 #username {
   font-weight: bold;
 }
+
 a {
   text-decoration: none;
 }

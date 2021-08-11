@@ -20,6 +20,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
     />
+
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
@@ -33,7 +34,10 @@
         <span>@yield('subtitle')</span>
       </div>
 
-      <div class="d-none d-sm-flex">
+      <div
+        class="d-none d-sm-flex profil"
+        onclick="window.open('/profil', target='_blank')"
+      >
         <div class="header_img">
           <img src="{{ asset('assets/img/logo.png') }}" alt="profile-pic" />
         </div>
@@ -133,7 +137,6 @@
       </div>
     </main>
     <script src="{{ asset('js/myscript.js') }}"></script>
-    <script src="{{ asset('js/script.js') }}"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"

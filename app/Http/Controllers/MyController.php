@@ -14,7 +14,7 @@ class MyController extends Controller
 
     public function export_tiang() 
     {
-        return Excel::download(new TiangsExport, 'Tiangs.xlsx');
+        return Excel::download(new TiangsExport, 'tiang-fo.xlsx');
     }
    
         public function import_tiang(Request $request)

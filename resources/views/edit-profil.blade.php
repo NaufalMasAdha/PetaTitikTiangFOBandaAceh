@@ -1,6 +1,6 @@
 @extends('layouts/app')
 <!--  -->
-@section('title','Admin | Edit') @section('subtitle', "Edit User")
+@section('title','Profil') @section('subtitle', "Edit Profil")
 <!--  -->
 @section('nav-menu')
 <div class="nav_list">
@@ -17,7 +17,7 @@
   <div class="col-12 col-md-4">
     <form
       class="form-group"
-      action="{{route ('admin_update',$user->id)}}"
+      action="{{route ('update_profil',$user->id)}}"
       method="POST"
     >
       @method('post')
@@ -58,7 +58,7 @@
 
       <div class="input-group my-3">
         <label class="input-group-text" for="role">Role</label>
-        <select class="form-select" id="role" name="role">
+        <select disabled class="form-select" id="role" name="role">
           <option
             value="{{$user->role}}"
             selected

@@ -28,6 +28,8 @@ Auth::routes([
 ]);
 
 Route::get('/home ', [HomeController::class, 'index'])->name('home');
+Route::get('/profil ', [HomeController::class, 'profil'])->name('profil');
+Route::post('/profil/{id} ', [HomeController::class, 'update_profil'])->name('update_profil');
 
 Route::get('/admin', [AdminController::class,'daftar_user'])->name("admin_home");
 Route::get('/admin/create', [AdminController::class,'create'])->name("admin_create");
@@ -56,6 +58,6 @@ Route::get('/instansi/edit/{id}', [MapController::class,'edit_instansi'])->name(
 Route::post('/instansi/edit/{id}', [MapController::class,'update_instansi'])->name("update_instansi");
 Route::delete('/instansi/delete/{id}', [MapController::class,'delete_instansi'])->name("delete_instansi");
 
-Route::post('/tiang/import', [MyController::class, 'import_tiang'])->name('import_tiang');
-Route::get('/tiang/export', [MyController::class, 'export_tiang'])->name('export_tiang');
+Route::post('/import-data-dari-excel', [MyController::class, 'import_tiang'])->name('import_tiang');
+Route::get('/export-data-ke-excel', [MyController::class, 'export_tiang'])->name('export_tiang');
 

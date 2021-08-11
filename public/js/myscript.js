@@ -35,3 +35,63 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
   // Your code to run since DOM is loaded and ready
 });
+
+function search() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i + 1].style.display = "none";
+      }
+    }
+  }
+}
+
+function isInputEmpty() {
+  inputs = document.querySelectorAll("input");
+  submit = document.querySelector('[type="submit"]');
+  y = inputs.length;
+  x = 0;
+  console.log("y = " + y);
+  inputs.forEach((element) => {
+    if (element["value"].length > 0) {
+      y--;
+    }
+    if (element["value"].length == 0) {
+      y++;
+    }
+
+    if (0 == y) {
+      console.log("OK");
+      submit.classList.remove("btn-secondary");
+    } else {
+      submit.classList.add("btn-secondary");
+    }
+  });
+}
+
+function filed() {
+  submit = document.querySelector('input[type="submit"]');
+  submit.classList.remove("btn-secondary");
+  console.log("filed", submit);
+}
+
+const togglePassword = document.querySelector("#togglePassword");
+const password = document.querySelector("#password");
+
+togglePassword.addEventListener("click", function (e) {
+  // toggle the type attribute
+  const type =
+    password.getAttribute("type") === "password" ? "text" : "password";
+  password.setAttribute("type", type);
+  // toggle the eye / eye slash icon
+  this.classList.toggle("bi-eye");
+});

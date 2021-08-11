@@ -114,7 +114,7 @@
         @enderror
       </div>
       <input
-        class="btn btn-primary mt-3 w-100 disabled btn-secondary"
+        class="btn btn-primary mt-3 w-100 btn-secondary"
         type="submit"
         value="Tambah Instansi"
       />
