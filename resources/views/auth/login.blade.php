@@ -128,7 +128,7 @@
 
               <div class="form-group">
                 <div class="col-md-12">
-                  <button type="submit" class="btn btn-dark btn-secondary">
+                  <button type="submit" class="btn btn-primary btn-secondary">
                     {{ __("Masuk") }}
                   </button>
 
@@ -152,5 +152,6 @@
       </div>
     </div>
     <script src="{{ asset('js/myscript.js') }}"></script>
+    <script src="{{ asset('js/toggle-pwd.js') }}"></script>
   </body>
 </html>

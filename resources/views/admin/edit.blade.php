@@ -1,15 +1,7 @@
 @extends('layouts/app')
 <!--  -->
 @section('title','Admin | Edit') @section('subtitle', "Edit User")
-<!--  -->
-@section('nav-menu')
-<div class="nav_list">
-  <a href="{{ route('admin_home') }}" class="nav_link active">
-    <i class="bx bx-grid-alt nav_icon"></i>
-    <span class="nav_name">Dashboard</span>
-  </a>
-</div>
-@endsection
+
 <!--  -->
 @section('content')
 
@@ -65,8 +57,8 @@
             hidden
             >{{$user->role}}</option
           >
-          <option value="Pimpinan">Pimpinan</option>
-          <option value="Teknisi">Teknisi</option>
+          <option value="pimpinan">Pimpinan</option>
+          <option value="teknisi">Teknisi</option>
         </select>
       </div>
       <label for="password">Password</label>
@@ -95,4 +87,8 @@
     </form>
   </div>
 </div>
+@endsection
+<!--  -->
+@section('scripts')
+<script src="{{ asset('js/toggle-pwd.js') }}"></script>
 @endsection

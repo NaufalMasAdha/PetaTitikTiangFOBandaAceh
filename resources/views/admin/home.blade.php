@@ -2,14 +2,7 @@
 <!--  -->
 @section('title','Admin | Home') @section('subtitle', "Daftar User")
 <!--  -->
-@section('nav-menu')
-<div class="nav_list">
-  <a href="{{ route('admin_home') }}" class="nav_link active">
-    <i class="bx bx-grid-alt nav_icon"></i>
-    <span class="nav_name">Dashboard</span>
-  </a>
-</div>
-@endsection
+
 <!-- Css -->
 @section('style')
 <link rel="stylesheet" href="{{asset('css/style.css')}}" />
@@ -103,7 +96,7 @@
   </div>
 </div>
 @section('scripts')
-<script src="{{asset('js/script.js')}}"></script>
+
 <script
   src="https://kit.fontawesome.com/cd504552aa.js"
   crossorigin="anonymous"

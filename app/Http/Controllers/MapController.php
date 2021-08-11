@@ -99,8 +99,8 @@ class MapController extends Controller
             'tahun_pembangunan' => 'required',
             'tinggi' => 'required',
             'tipe' => 'required',
-            'latitude' => 'required',
-            'longitude' => 'required'
+            'latitude' => 'required|numeric',
+            'longitude' => 'required|numeric'
             
         ]);
 
@@ -142,8 +142,8 @@ class MapController extends Controller
             'nama' => 'required',
             'alamat' => 'required',
             'no_hp' => 'required',
-            'latitude' => 'required',
-            'longitude' => 'required'
+            'latitude' => 'required|numeric',
+            'longitude' => 'required|numeric'
             
         ]);
 
@@ -168,8 +168,8 @@ class MapController extends Controller
             'nama' => 'required',
             'alamat' => 'required',
             'no_hp' => 'required',
-            'latitude' => 'required',
-            'longitude' => 'required'
+            'latitude' => 'required|numeric',
+            'longitude' => 'required|numeric',
         ]);
 
         Instansi::find($id)->update([

@@ -46,7 +46,7 @@ class HomeController extends Controller
         User::find($id)->update([
             'name' => $request->name,
             'email' => $request->email,
-            'password' =>  ($request->password != null)? bcrypt($request->password) : $this->password,
+            'password' =>  ($request->password != null)? bcrypt($request->password) : $request->user()->password,
         ]);
         return back()->with(['success' => 'Profil berhasil diperbarui']);
     }
