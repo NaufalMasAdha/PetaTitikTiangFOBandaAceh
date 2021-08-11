@@ -73,7 +73,7 @@
       <div class="input-group mb-3">
         <input
           type="password"
-          class="form-control @error('password') invalid @enderror"
+          class="form-control @error('password') is-invalid @enderror"
           placeholder="Kosongkan jika tidak ingin diubah"
           aria-label="password"
           aria-describedby="togglePassword"
