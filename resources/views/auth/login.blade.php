@@ -92,7 +92,7 @@
                     <input
                       type="password"
                       class="form-control @error('password') is-invalid @enderror"
-                      placeholder="Kosongkan jika tidak ingin diubah"
+                      placeholder="Masukkan Password"
                       aria-label="password"
                       aria-describedby="togglePassword"
                       name="password"

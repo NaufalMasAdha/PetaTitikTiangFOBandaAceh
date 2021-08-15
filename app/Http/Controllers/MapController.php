@@ -35,7 +35,7 @@ class MapController extends Controller
                 'title' => $i->nama,
                 'lat' => $i->latitude,
                 'lng' => $i->longitude,
-                // 'icon' => '/pin2.png',
+                'icon' => 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png',
                 'popup' => '<strong>' .$i->nama .'</strong>'));
         }
 
