@@ -19,24 +19,6 @@
     ></i>
     <ul class="dropdown-menu" aria-labelledby="btn_filter">
       <div class="ms-3">
-        <!--  <img
-          height="20px"
-          src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png"
-          alt="icon"
-        />
-        <label class="form-check-label" for="flexCheckChecked">
-          Instansi
-        </label>
-      </div>
-      <div class="ms-3">
-        <img
-          height="20px"
-          src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png"
-          alt="icon"
-        />
-        <label class="form-check-label" for="flexCheckChecked">
-          Tiang
-        </label>-->
         <small><strong>Tampilkan berdasarkan tahun pembangunan</strong></small>
       </div>
       <hr />
