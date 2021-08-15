@@ -8,9 +8,17 @@ use App\Models\Tiang;
 use DB;
 class MapController extends Controller
 {
-       public function index(){
+    public function index($tahun='all'){
+        
+        $thn = Tiang::select('tahun_pembangunan',DB::raw('count(*) as total'))->groupBy('tahun_pembangunan')->get();
 
-        $tiang = Tiang::all();
+        if($tahun == 'all'){
+            $tiang = Tiang::all();
+        }else{
+            $tiang = Tiang::where('tahun_pembangunan', $tahun)->get();
+        }
+
+
         $instansi = Instansi::all();
 
         $markers = array();
@@ -21,7 +29,8 @@ class MapController extends Controller
                 'title' => $t->tahun_pembangunan,
                 'lat' => $t->latitude,
                 'lng' => $t->longitude,
-                // 'icon' => '/pin1.png',
+                'icon' => '/fo.png',
+                'iconAnchor' => [12,37],
                 'popup' => "
                     <strong> Tiang $t->id </strong> ($t->tahun_pembangunan) <br>
                     <strong> Tipe:  </strong> $t->tipe <br>
@@ -35,7 +44,8 @@ class MapController extends Controller
                 'title' => $i->nama,
                 'lat' => $i->latitude,
                 'lng' => $i->longitude,
-                'icon' => 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png',
+                'icon' => '/instansi.png',
+                'iconAnchor' => [12,37],
                 'popup' => '<strong>' .$i->nama .'</strong>'));
         }
 
@@ -46,7 +56,7 @@ class MapController extends Controller
             'markers' => $markers
         );
 
-        return view('map_home', ['map' => $map_center]);
+        return view('map_home', ['map' => $map_center, 'thn' => $thn]);
     }
 
     // Bagian CRUD Tiang
