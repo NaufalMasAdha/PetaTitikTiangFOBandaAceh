@@ -49,7 +49,6 @@ FO") @section('nav-menu')
       <div class="form-group my-3">
         <label for="tahun_pembangunan">Tahun Pembangunan </label>
         <input
-          disabled
           autocomplete="off"
           class="form-control"
           type="text"

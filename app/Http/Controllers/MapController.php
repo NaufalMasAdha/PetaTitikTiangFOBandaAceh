@@ -69,7 +69,7 @@ class MapController extends Controller
 
     public function daftar_tiang($tahun, Tiang $tiang){
         $tiangs = $tiang->where('tahun_pembangunan', $tahun)->sortable()->paginate(20);
-        return view('tiang.index', ['tiangs' => $tiangs,'tahun' => $tahun, 'i' => 1]);
+        return view('tiang.home', ['tiangs' => $tiangs,'tahun' => $tahun, 'i' => 1]);
     }
 
     public function tambah_tiang($tahun){
@@ -140,7 +140,7 @@ class MapController extends Controller
     // Bagian CRUD instansi
     public function daftar_instansi(Instansi $instansi){
         $instansis = $instansi->sortable()->paginate(20);
-        return view('instansi.index', ['instansis' => $instansis, 'i' => 1]);
+        return view('instansi.home', ['instansis' => $instansis, 'i' => 1]);
     }
 
     public function tambah_instansi(){
