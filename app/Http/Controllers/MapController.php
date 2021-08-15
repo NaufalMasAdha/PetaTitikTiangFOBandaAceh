@@ -8,28 +8,36 @@ use App\Models\Tiang;
 use DB;
 class MapController extends Controller
 {
-    public function index($tahun='all'){
+    public function index($kategori='all'){
         
         $thn = Tiang::select('tahun_pembangunan',DB::raw('count(*) as total'))->groupBy('tahun_pembangunan')->get();
-
-        if($tahun == 'all'){
+        $markers = array();
+        
+        $tiang = null;
+        $instansi = null;
+        
+        if($kategori == 'all'){
             $tiang = Tiang::all();
+            $instansi = Instansi::all();
+        }elseif($kategori == 'instansi'){
+            $instansi = Instansi::all();
+            $tiang = null;
+        }elseif($kategori == "tiang"){
+            $tiang = Tiang::all();
+            $instansi = null;
         }else{
-            $tiang = Tiang::where('tahun_pembangunan', $tahun)->get();
+            $tiang = Tiang::where('tahun_pembangunan', $kategori)->get();
         }
 
 
-        $instansi = Instansi::all();
-
-        $markers = array();
-
-
+    if($tiang){
         foreach($tiang as $t){
             array_push($markers, array(
                 'title' => $t->tahun_pembangunan,
                 'lat' => $t->latitude,
                 'lng' => $t->longitude,
                 'icon' => '/fo.png',
+                'iconSize' => [25,37],
                 'iconAnchor' => [12,37],
                 'popup' => "
                     <strong> Tiang $t->id </strong> ($t->tahun_pembangunan) <br>
@@ -38,6 +46,9 @@ class MapController extends Controller
 
              "));
         }
+    }
+
+    if($instansi){
 
         foreach($instansi as $i){
             array_push($markers, array(
@@ -45,21 +56,23 @@ class MapController extends Controller
                 'lat' => $i->latitude,
                 'lng' => $i->longitude,
                 'icon' => '/instansi.png',
+                'iconSize' => [25,37],
                 'iconAnchor' => [12,37],
                 'popup' => '<strong>' .$i->nama .'</strong>'));
+            }
+            
         }
-
-        $map_center = array(
-            'lat' => 5.553581817511479, 
-            'lng' => 95.31728569439134, 
-            'zoom' => 14,
-            'markers' => $markers
-        );
-
-        return view('map_home', ['map' => $map_center, 'thn' => $thn]);
+            $map_center = array(
+                'lat' => 5.553581817511479, 
+                'lng' => 95.31728569439134, 
+                'zoom' => 14,
+                'markers' => $markers
+            );
+            
+            return view('map_home', ['map' => $map_center, 'thn' => $thn]);
+        
     }
-
-    // Bagian CRUD Tiang
+        // Bagian CRUD Tiang
     public function tiang(Tiang $tiang){
         $i = 1;
         $data = Tiang::select('tahun_pembangunan',DB::raw('count(*) as total'))->groupBy('tahun_pembangunan')->get();

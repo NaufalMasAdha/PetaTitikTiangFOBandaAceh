@@ -32,7 +32,7 @@ Route::group(['middleware' => ['auth']], function(){
   Route::get('/home ', [HomeController::class, 'index'])->name('home');
   Route::get('/profil ', [HomeController::class, 'profil'])->name('profil');
   Route::post('/profil/{id} ', [HomeController::class, 'update_profil'])->name('update_profil');
-  Route::get('/map/{tahun?}', [MapController::class,'index'])->name("map_home");
+  Route::get('/map/{kategori?}', [MapController::class,'index'])->name("map_home");
 });
 
 

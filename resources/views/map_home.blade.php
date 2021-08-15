@@ -18,16 +18,27 @@
       aria-expanded="false"
     ></i>
     <ul class="dropdown-menu" aria-labelledby="btn_filter">
-      <div class="ms-3">
-        <small><strong>Tampilkan berdasarkan tahun pembangunan</strong></small>
-      </div>
+      <li>
+        <a class="dropdown-item" href="{{ route('map_home') }}">Semua</a>
+      </li>
+      <li>
+        <a class="dropdown-item" href="{{ route('map_home', 'instansi') }}"
+          >Instansi</a
+        >
+      </li>
+      <li>
+        <a class="dropdown-item" href="{{ route('map_home','tiang') }}"
+          >Tiang FO</a
+        >
+      </li>
       <hr />
       @foreach($thn as $t)
       <li>
         <a
           class="dropdown-item"
           href="{{ route('map_home',$t->tahun_pembangunan) }}"
-          >Tiang FO ({{ $t->tahun_pembangunan }})</a
+        >
+          Tiang FO ({{ $t->tahun_pembangunan }})</a
         >
       </li>
       @endforeach
