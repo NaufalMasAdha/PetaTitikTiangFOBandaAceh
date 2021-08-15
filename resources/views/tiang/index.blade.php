@@ -30,10 +30,6 @@ FO ($tahun)")
       ><i class="bi bi-plus-square"></i
     ></a>
   </div>
-
-  <div class="col-12 col-md-3">
-    {!! $tiangs->links() !!}
-  </div>
 </div>
 
 <div class="row">
@@ -96,6 +92,12 @@ FO ($tahun)")
         @endforeach
       </tbody>
     </table>
+    <div class="col-auto col-md-3">
+      {!! $tiangs->links() !!}
+    </div>
+    <div class="col-auto">
+      <strong> Total data : {{ $tiangs->total() }} </strong>
+    </div>
   </div>
 </div>
 @section('scripts')

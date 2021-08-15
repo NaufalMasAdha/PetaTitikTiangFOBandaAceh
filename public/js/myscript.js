@@ -79,7 +79,7 @@ function isInputEmpty() {
 }
 
 function filed() {
-  submit = document.querySelector('input[type="submit"]');
+  submit = document.querySelector('input[value="Import"]');
   submit.classList.remove("btn-secondary");
   console.log("filed", submit);
 }

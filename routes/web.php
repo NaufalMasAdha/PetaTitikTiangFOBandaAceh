@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MapController;
-use App\Http\Controllers\MyController;
+use App\Http\Controllers\ExcelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,7 +68,10 @@ Route::group(['middleware' => ['teknisi', 'auth']], function()
   Route::post('/instansi/edit/{id}', [MapController::class,'update_instansi'])->name("update_instansi");
   Route::delete('/instansi/delete/{id}', [MapController::class,'delete_instansi'])->name("delete_instansi");
 
-  Route::post('/import-data-dari-excel', [MyController::class, 'import_tiang'])->name('import_tiang');
-  Route::get('/export-data-ke-excel', [MyController::class, 'export_tiang'])->name('export_tiang');
+  Route::post('/import-tiang', [ExcelController::class, 'import_tiang'])->name('import_tiang');
+  Route::get('/export-tiang', [ExcelController::class, 'export_tiang'])->name('export_tiang');
+
+  Route::post('/import-instansi', [ExcelController::class, 'import_instansi'])->name('import_instansi');
+  Route::get('/export-instansi', [ExcelController::class, 'export_instansi'])->name('export_instansi');
 });
 
