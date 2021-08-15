@@ -1,3 +1,4 @@
+// Code untuk Navbar (sidebar)
 document.addEventListener("DOMContentLoaded", function (event) {
   const showNavbar = (toggleId, navId, bodyId, headerId) => {
     const toggle = document.getElementById(toggleId),
@@ -32,10 +33,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   linkColor.forEach((l) => l.addEventListener("click", colorLink));
-
-  // Your code to run since DOM is loaded and ready
 });
 
+// fitur search data pada tabel
 function search() {
   var input, filter, table, tr, td, i, txtValue;
   input = document.getElementById("myInput");
@@ -55,6 +55,7 @@ function search() {
   }
 }
 
+// Mengubah warna tombol submit jika data form sudah terisi
 function isInputEmpty() {
   inputs = document.querySelectorAll("input");
   submit = document.querySelector('[type="submit"]');
@@ -78,6 +79,7 @@ function isInputEmpty() {
   });
 }
 
+// Sama aja tapi untuk form tipe file
 function filed() {
   submit = document.querySelector('input[value="Import"]');
   submit.classList.remove("btn-secondary");
