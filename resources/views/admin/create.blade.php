@@ -63,13 +63,13 @@
       />
     </form>
   </div>
-  <div class="col-12 col-md-5 text-success">
+  <div class="col-12 col-md-5 text-success my-3">
     NOTE: <br />
-    Role Pimpinan hanya dapat melihat website <br />
-    Role Teknisi dapat melakukan modifikasi pada website <br />
+    Role Pimpinan hanya dapat melihat dashboard peta <br />
+    Role Teknisi dapat melakukan modifikasi pada peta <br />
     Password default untuk setiap user:
     <strong>
-      diskominfotik
+      diskominfo
     </strong>
   </div>
 </div>
