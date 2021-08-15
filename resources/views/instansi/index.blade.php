@@ -9,7 +9,7 @@ Instansi")
 <!--  -->
 @section('content')
 <div class="row">
-  <div class="col-8 col-md-4 mb-2">
+  <div class="col-12 col-md-4 mb-2">
     <!-- Search form -->
     <form action="">
       <input
@@ -22,13 +22,19 @@ Instansi")
       />
     </form>
   </div>
-  <div class="col mb-2">
+  <div class="col-auto mb-2">
     <a href="{{ route('tambah_instansi') }}" class="btn btn-dark"
       ><i class="bi bi-plus-square"></i
     ></a>
   </div>
-  <div class="col-12 col-md-3">
-    {!! $instansis->links() !!}
+  <div class="col-auto">
+    <a
+      title="Export semua data ke excel"
+      href="{{ route('export_instansi') }}"
+      class="btn btn-success @if(count($instansis) == 0) d-none @endif"
+    >
+      <i class="bi bi-download"></i
+    ></a>
   </div>
 </div>
 
@@ -88,6 +94,12 @@ Instansi")
         @endforeach
       </tbody>
     </table>
+    <div class="col-auto col-md-3">
+      {!! $instansis->links() !!}
+    </div>
+    <div class="col-auto">
+      <strong> Total data : {{ $instansis->total() }} </strong>
+    </div>
   </div>
 </div>
 @section('scripts')

@@ -5,7 +5,7 @@
 <!--  -->
 
 @section('content')
-<div class="row">
+<div class="row justify-content-between">
   <div class="col-12 col-md-4 mr-3">
     <form class="form-group" method="POST" action="{{route('store_instansi')}}">
       @method('post')
@@ -101,11 +101,48 @@
         @enderror
       </div>
       <input
-        class="btn btn-primary mt-3 w-100 btn-secondary"
+        class="btn btn-primary mt-3 w-100 btn-secondary mb-sm-3"
         type="submit"
         value="Tambah Instansi"
       />
     </form>
+  </div>
+  <div class="col d-block text-center my-3">
+    - atau -
+  </div>
+  <div class="col-12 col-md-4">
+    <p>Upload file spreadsheet data Instansi</p>
+    <form
+      class="form-group"
+      method="POST"
+      enctype="multipart/form-data"
+      action="{{ route('import_instansi') }}"
+    >
+      @csrf
+      <input
+        onchange="filed()"
+        required
+        class="form-control @error('file') is-invalid @enderror"
+        type="file"
+        name="file"
+        id="file"
+      />
+      @error('file')
+      <span class="text-danger" role="alert">
+        {{ $message }}
+      </span>
+      @enderror
+      <input
+        class="btn btn-primary my-3 w-100 btn-secondary"
+        type="submit"
+        value="Import"
+      />
+    </form>
+    <small
+      >Pastikan format berkas sesuai dengan contoh berikut:
+      <a class="text-center" href="{{ asset('odp.xlsx') }}" download>
+        example.xlsx <i class="bi bi-file-earmark-arrow-down"> </i></a
+    ></small>
   </div>
 </div>
 @endsection

@@ -28,9 +28,6 @@
       ><i class="fa fa-user-plus"></i
     ></a>
   </div>
-  <div class="col-12 col-md-3">
-    {!! $users->links() !!}
-  </div>
 </div>
 
 <div class="row">
@@ -93,6 +90,12 @@
         @endforeach
       </tbody>
     </table>
+    <div class="col-auto col-md-3">
+      {!! $users->links() !!}
+    </div>
+    <div class="col-auto">
+      <strong> Total data : {{ $users->total() }} </strong>
+    </div>
   </div>
 </div>
 @section('scripts')
