@@ -30,7 +30,12 @@ FO") @section('style')
           @foreach($data as $d)
           <tr>
             <td>{{ $i++ }}</td>
-            <td>{{ $d->tahun_pembangunan }}</td>
+            <td>
+              <a
+                href="{{ route('map_home', $d->tahun_pembangunan) }}"
+                >{{ $d->tahun_pembangunan }}</a
+              >
+            </td>
             <td>{{ $d->total }}</td>
             <td>
               <form
@@ -46,14 +51,14 @@ FO") @section('style')
                 ></button>
                 @csrf @method('delete')
               </form>
+              <a
+                class="mx-2"
+                href="{{ route('daftar_tiang', $d->tahun_pembangunan) }}"
+                ><i class="bi bi-list text-primary"></i
+              ></a>
               <a onclick="document.getElementById('del-btn').click()" href="#"
                 ><i class="bi bi-trash text-danger"></i
               ></a>
-              <a
-                class="ms-3"
-                href="{{ route('daftar_tiang', $d->tahun_pembangunan) }}"
-                >Lihat Detail</a
-              >
             </td>
           </tr>
           @endforeach
@@ -100,7 +105,11 @@ FO") @section('style')
     </form>
     <small
       >Pastikan format berkas sesuai dengan contoh berikut:
-      <a class="text-center" href="{{ asset('fo-2017.xlsx') }}" download>
+      <a
+        class="text-center"
+        href="{{ asset('excel/example/fo-2017.xlsx') }}"
+        download
+      >
         example.xlsx <i class="bi bi-file-earmark-arrow-down"> </i></a
     ></small>
   </div>

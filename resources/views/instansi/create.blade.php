@@ -140,7 +140,11 @@
     </form>
     <small
       >Pastikan format berkas sesuai dengan contoh berikut:
-      <a class="text-center" href="{{ asset('odp.xlsx') }}" download>
+      <a
+        class="text-center"
+        href="{{ asset('excel/example/odp.xlsx') }}"
+        download
+      >
         example.xlsx <i class="bi bi-file-earmark-arrow-down"> </i></a
     ></small>
   </div>

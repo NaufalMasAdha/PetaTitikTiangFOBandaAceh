@@ -63,7 +63,7 @@ class ExcelController extends Controller
         try{
             $import = Excel::import(new InstansisImport(), storage_path('app/public/excel/'.$nama_file));
         }catch(\Exception $e){
-            return redirect()->route('daftar_instansi')->with(['deleted' => 'Data Gagal Diimport!']);
+            return redirect()->route('tambah_instansi')->with(['deleted' => 'Data Gagal Diimport!']);
         }
 
         Storage::delete($path);

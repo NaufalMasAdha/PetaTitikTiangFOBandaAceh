@@ -45,7 +45,7 @@ class AdminController extends Controller
     public function update(Request $request ,$id){
 
         $request->validate([
-            'name' =>  'required|alpha',
+            'name' =>  'required',
             'email' => ['required',Rule::unique('users')->ignore($id)],
             'role' =>'required',
             'password' => 'nullable|min:6'
@@ -56,7 +56,7 @@ class AdminController extends Controller
             'name' => $request->name,
             'email' => strtolower($request->email),
             'role' => $request->role,
-            'password' =>  ($request->password != null)? bcrypt($request->password) : bcrypt("12345678"),
+            'password' =>  ($request->password != null)? bcrypt($request->password) : $request->user()->password,
         ]);
         return redirect()->route('admin_home')->with(['success' => 'User berhasil diperbarui']);
     }
