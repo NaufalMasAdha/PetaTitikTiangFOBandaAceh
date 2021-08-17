@@ -65,11 +65,7 @@
               method="POST"
             >
               @csrf @method('delete')
-              <button
-                id="del-btn"
-                type="submit"
-                onclick="return confirm('Hapus akun ini?')"
-              ></button>
+              <button id="del-btn-{{ $u->id }}" type="submit"></button>
               <a onclick="document.getElementById('del-btn').click()" href="#"
                 ><i class="bi bi-trash"></i
               ></a>
@@ -81,7 +77,7 @@
             ></a>
             <a
               class="btn btn-sm btn-danger"
-              onclick="document.getElementById('del-btn').click()"
+              onclick="document.getElementById('del-btn-{{ $u->id }}').click()"
               href="#"
               ><i class="bi bi-trash"></i
             ></a>

@@ -7,14 +7,18 @@
 @section('content')
 <div class="row justify-content-between">
   <div class="col-12 col-md-4 mr-3">
-    <form class="form-group" method="POST" action="{{route('store_instansi')}}">
+    <form
+      onkeyup="isInputEmpty()"
+      class="form-group"
+      method="POST"
+      action="{{route('store_instansi')}}"
+    >
       @method('post')
       <!--  -->
       @csrf
       <div class="form-group my-3">
         <label for="nama">Nama Instansi </label>
         <input
-          onkeyup="isInputEmpty()"
           autocomplete="off"
           class="form-control @error('nama') is-invalid @enderror"
           type="text"
@@ -32,7 +36,6 @@
       <div class="form-group">
         <label for="alamat">Alamat </label>
         <input
-          onkeyup="isInputEmpty()"
           autocomplete="off"
           class="form-control @error('alamat') is-invalid @enderror"
           type="text"
@@ -50,7 +53,6 @@
       <div class="form-group my-3">
         <label for="no_hp">No. HP </label>
         <input
-          onkeyup="isInputEmpty()"
           autocomplete="off"
           class="form-control @error('no_hp') is-invalid @enderror"
           type="tel"
@@ -68,7 +70,6 @@
       <div class="form-group my-3">
         <label for="latitude">Latitude </label>
         <input
-          onkeyup="isInputEmpty()"
           autocomplete="off"
           class="form-control @error('latitude') is-invalid @enderror"
           type="text"
@@ -86,7 +87,6 @@
       <div class="form-group my-3">
         <label for="longitude">Longitude </label>
         <input
-          onkeyup="isInputEmpty()"
           autocomplete="off"
           class="form-control @error('longitude') is-invalid @enderror"
           type="text"
@@ -101,7 +101,7 @@
         @enderror
       </div>
       <input
-        class="btn btn-primary mt-3 w-100 btn-secondary mb-sm-3"
+        class="btn btn-primary mt-3 w-100 mb-sm-3 btn-secondary"
         type="submit"
         value="Tambah Instansi"
       />

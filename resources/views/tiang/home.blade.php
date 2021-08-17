@@ -73,10 +73,9 @@ FO ($tahun)")
               method="POST"
             >
               <button
-                id="del-btn"
+                id="del-btn-{{ $tiang->id }}"
                 type="submit"
                 class="btn btn-outline-danger w-100"
-                onclick="return confirm('Hapus data ini?')"
               ></button>
               @csrf @method('delete')
             </form>
@@ -84,7 +83,9 @@ FO ($tahun)")
               ><i class="bi bi-pencil-square"></i>
             </a>
 
-            <a onclick="document.getElementById('del-btn').click()" href="#"
+            <a
+              onclick="document.getElementById('del-btn-{{ $tiang->id }}').click()"
+              href="#"
               ><i class="bi bi-trash"></i
             ></a>
           </td>

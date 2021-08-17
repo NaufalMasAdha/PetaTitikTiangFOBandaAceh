@@ -75,18 +75,21 @@ Instansi")
               method="POST"
             >
               <button
-                id="del-btn"
+                id="del-btn-{{ $in->id }}"
                 type="submit"
                 class="btn btn-outline-danger w-100"
-                onclick="return confirm('Hapus data ini?')"
               ></button>
-              @csrf @method('delete')
+              @csrf
+              <!--  -->
+              @method('delete')
             </form>
             <a class="me-3" href="{{route ('edit_instansi', $in->id)}}"
               ><i class="bi bi-pencil-square"></i
             ></a>
 
-            <a onclick="document.getElementById('del-btn').click()" href="#"
+            <a
+              onclick="document.getElementById('del-btn-{{ $in->id }}').click()"
+              href="#"
               ><i class="bi bi-trash"></i
             ></a>
           </td>

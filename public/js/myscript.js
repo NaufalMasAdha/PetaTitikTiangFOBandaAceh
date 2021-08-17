@@ -57,21 +57,21 @@ function search() {
 
 // Mengubah warna tombol submit jika data form sudah terisi
 function isInputEmpty() {
-  inputs = document.querySelectorAll("input");
+  inputs = document.querySelectorAll(
+    "input:not([type=file],[type=hidden],[type=submit])"
+  );
   submit = document.querySelector('[type="submit"]');
   y = inputs.length;
   x = 0;
-  console.log("y = " + y);
   inputs.forEach((element) => {
     if (element["value"].length > 0) {
-      y--;
+      --y;
     }
     if (element["value"].length == 0) {
-      y++;
+      ++y;
     }
 
-    if (0 == y) {
-      console.log("OK");
+    if (y <= 0) {
       submit.classList.remove("btn-secondary");
     } else {
       submit.classList.add("btn-secondary");
