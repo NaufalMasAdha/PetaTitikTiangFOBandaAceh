@@ -69,7 +69,7 @@ Route::group(['middleware' => ['teknisi', 'auth']], function()
   Route::delete('/instansi/delete/{id}', [MapController::class,'delete_instansi'])->name("delete_instansi");
 
   Route::post('/import-tiang', [ExcelController::class, 'import_tiang'])->name('import_tiang');
-  Route::get('/export-tiang', [ExcelController::class, 'export_tiang'])->name('export_tiang');
+  Route::get('/export-tiang/{tahun?}', [ExcelController::class, 'export_tiang'])->name('export_tiang');
 
   Route::post('/import-instansi', [ExcelController::class, 'import_instansi'])->name('import_instansi');
   Route::get('/export-instansi', [ExcelController::class, 'export_instansi'])->name('export_instansi');

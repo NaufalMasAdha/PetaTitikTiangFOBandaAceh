@@ -32,6 +32,7 @@ FO") @section('style')
             <td>{{ $i++ }}</td>
             <td>
               <a
+                title="Lihat pada peta"
                 href="{{ route('map_home', $d->tahun_pembangunan) }}"
                 >{{ $d->tahun_pembangunan }}</a
               >
@@ -52,12 +53,20 @@ FO") @section('style')
                 @csrf @method('delete')
               </form>
               <a
+                title="List data tahun {{ $d->tahun_pembangunan }}"
                 class="mx-2"
                 href="{{ route('daftar_tiang', $d->tahun_pembangunan) }}"
                 ><i class="bi bi-list text-primary"></i
               ></a>
+              <a
+                title="Export data ini ke excel"
+                href="{{ route('export_tiang',$d->tahun_pembangunan) }}"
+                class="mx-2"
+              >
+                <i class="bi bi-download"></i
+              ></a>
               <a onclick="document.getElementById('del-btn').click()" href="#"
-                ><i class="bi bi-trash text-danger"></i
+                ><i class="bi bi-trash text-danger mx-2"></i
               ></a>
             </td>
           </tr>
@@ -70,7 +79,7 @@ FO") @section('style')
       href="{{ route('export_tiang') }}"
       class="btn btn-success my-2 @if(count($data) == 0) d-none @endif"
     >
-      <i class="bi bi-download"></i> Export data</a
+      <i class="bi bi-download"></i> Export Semua Data</a
     >
     <hr />
   </div>

@@ -32,6 +32,7 @@
   background-color: white;
   margin-bottom: 2%;
 }
+
 body {
   position: relative;
   margin: var(--header-height) 0 0 0;
@@ -179,6 +180,11 @@ html {
   padding-left: calc(var(--nav-width) + 1rem);
 }
 
+.dropdown-item {
+  font-size: 0.8em;
+  line-height: 1em;
+}
+
 .active {
   color: var(--primary-color);
 }
@@ -240,4 +246,21 @@ html {
   a {
     text-decoration-line: none !important;
   }
+}
+
+.dropdown-menu li {
+  position: relative;
+}
+.dropdown-menu .dropdown-submenu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 90%;
+}
+.dropdown-menu .dropdown-submenu-left {
+  right: 100%;
+  left: auto;
+}
+.dropdown-menu > li:hover > .dropdown-submenu {
+  display: block;
 }

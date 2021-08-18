@@ -14,9 +14,9 @@ class ExcelController extends Controller
 {
 
 
-    public function export_tiang() 
+    public function export_tiang($tahun_pembangunan='all') 
     {
-        return Excel::download(new TiangsExport, 'tiang-fo.xlsx');
+        return Excel::download(new TiangsExport($tahun_pembangunan), 'tiang-fo-'.$tahun_pembangunan.'.xlsx');
     }
    
     public function import_tiang(Request $request)

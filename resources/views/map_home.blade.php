@@ -17,10 +17,7 @@
       data-bs-toggle="dropdown"
       aria-expanded="false"
     ></i>
-    <ul class="dropdown-menu" aria-labelledby="btn_filter">
-      <li>
-        <a class="dropdown-item" href="{{ route('map_home') }}">Semua</a>
-      </li>
+    <!-- <ul class="dropdown-menu" aria-labelledby="btn_filter">
       <li>
         <a class="dropdown-item" href="{{ route('map_home', 'instansi') }}"
           >Instansi</a
@@ -29,6 +26,11 @@
       <li>
         <a class="dropdown-item" href="{{ route('map_home','tiang') }}"
           >Tiang FO</a
+        >
+      </li>
+      <li>
+        <a class="dropdown-item" href="{{ route('map_home') }}"
+          >Tampilkan Semua</a
         >
       </li>
       <hr />
@@ -42,6 +44,40 @@
         >
       </li>
       @endforeach
+    </ul> -->
+
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <li>
+        <a class="dropdown-item" href="{{ route('map_home') }}"
+          >Tampilkan Semua</a
+        >
+      </li>
+      <li>
+        <a class="dropdown-item" href="{{ route('map_home', 'instansi') }}"
+          >Instansi</a
+        >
+
+        <a class="dropdown-item" href="#">
+          Tiang FO &raquo;
+        </a>
+        <ul class="dropdown-menu dropdown-submenu">
+          <li>
+            <a class="dropdown-item" href="{{ route('map_home','tiang') }}"
+              >Semua</a
+            >
+          </li>
+          @foreach($thn as $t)
+          <li>
+            <a
+              class="dropdown-item"
+              href="{{ route('map_home',$t->tahun_pembangunan) }}"
+            >
+              Tiang FO ({{ $t->tahun_pembangunan }})</a
+            >
+          </li>
+          @endforeach
+        </ul>
+      </li>
     </ul>
   </div>
 </div>
