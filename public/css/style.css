@@ -1,0 +1,22 @@
+#ws {
+  display: block;
+}
+thead,
+tbody {
+  max-width: 100%;
+  white-space: nowrap;
+}
+thead a,
+thead {
+  font-weight: bold;
+  color: rgb(37, 37, 37);
+}
+
+td a:hover {
+  color: rgb(85, 155, 187);
+  text-decoration-line: none;
+}
+
+.table-responsive {
+  margin-top: 1% !important;
+}

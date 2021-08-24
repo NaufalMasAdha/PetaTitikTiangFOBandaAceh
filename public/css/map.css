@@ -1,0 +1,31 @@
+.filter {
+  border: none;
+  position: absolute;
+  right: 1%;
+  top: 1%;
+}
+
+.leaflet-control-attribution {
+  display: none;
+}
+
+.gnw-map {
+  width: 100%;
+  border-radius: 4px 50px 4px 4px;
+}
+
+.gnw-map-service__osm {
+  border-radius: 4px 50px 4px 4px;
+}
+
+.gnw-map-service {
+  height: 100% !important;
+}
+
+.white-container {
+  position: relative;
+  height: 85vh;
+  width: 100%;
+  margin: 0;
+  padding: 1%;
+}
