@@ -1,3 +1,32 @@
+# Cara Install
+
+1. Clone project  
+ <code>git clone https://gitlab.bandaacehkota.go.id/farhankaromi/pencatatan-tiang-fo.git </code>  
+ <code>cd pencatatan-tiang-fo </code>
+
+ 2. Install Dependencies  
+ <code>composer install --ignore-platform-reqs </code>
+
+ 3. Copy file .env  
+ <code>copy .env.example .env</code>
+
+4. Buat Database dengan nama <strong>webgis_tiang_fo </strong>
+
+5. Generate unique key  
+ <code>php artisan key:generate</code>
+
+6. Migrate DB dan Seeding  
+ <code>php artisan migrate --seed</code>
+
+7. Run server  
+ <code>php artisan serve</code>  
+ Buka <code>http://127.0.0.1:8000</code>
+
+
+
+Requirements:  
+- Composer version 2.1.3 2021-06-09 16:31:20
+- PHP 8.0.9 (cli) (built: Jul 29 2021 14:12:27) ( NTS Visual C++ 2019 x64 )  
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
