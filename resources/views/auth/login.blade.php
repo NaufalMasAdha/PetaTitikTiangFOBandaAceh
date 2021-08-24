@@ -142,10 +142,6 @@
                   @endif
                 </div>
               </div>
-
-              <small class="form-group row justify-content-center text-center">
-                <p>Belum punya akun? <a href="#">Hubungi admin</a></p>
-              </small>
             </form>
           </div>
         </div>

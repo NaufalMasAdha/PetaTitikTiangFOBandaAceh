@@ -3,8 +3,9 @@ window.addEventListener("LaravelMaps:MapInitialized", function (event) {
   var map = event.detail.map;
   var markers = event.detail.markers;
   var service = event.detail.service;
-  // markers.options.offset = [0, -12];
-  console.log(markers);
+  console.log(map.attributionControl);
+  map.attributionControl.addAttribution(" Diskominfotik Kota Banda Aceh");
+  map.attributionControl.setSuffix(" ");
 });
 
 window.addEventListener("LaravelMaps:MarkerClicked", function (event) {

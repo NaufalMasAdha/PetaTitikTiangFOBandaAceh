@@ -58,7 +58,8 @@ class MapController extends Controller
                 'icon' => '/instansi.png',
                 'iconSize' => [25,37],
                 'iconAnchor' => [12,37],
-                'popup' => '<strong>' .$i->nama .'</strong>'));
+                'popup' => '<strong>' .$i->nama .'</strong> <br>
+                HP: ' . $i->no_hp ));
             }
             
         }
