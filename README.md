@@ -1,7 +1,7 @@
 # Cara Install
 
 1. Clone project  
- <code>git clone https://gitlab.bandaacehkota.go.id/farhankaromi/pencatatan-tiang-fo.git </code>  
+ <code>git clone https://github.com/NaufalMasAdha/PetaTitikTiangFOBandaAceh </code>  
  <code>cd pencatatan-tiang-fo </code>
 
  2. Install Dependencies  
