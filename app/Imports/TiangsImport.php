@@ -16,7 +16,7 @@ class TiangsImport implements ToModel, WithHeadingRow
     public function model(array $row)
     {
         return new Tiang([
-            
+            'nama' => $row['nama'],
             'alamat' => $row['alamat'],
             'tahun_pembangunan' => $row['tahun_pembangunan'],
             'tinggi' => $row['tinggi'],

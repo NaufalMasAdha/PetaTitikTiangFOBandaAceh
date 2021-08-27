@@ -31,11 +31,11 @@ class ExcelController extends Controller
 
         $path = $file->storeAs('public/excel/',$nama_file);
         
-        try{
+        // try{
             $import = Excel::import(new TiangsImport(), storage_path('app/public/excel/'.$nama_file));
-        }catch(\Exception $e){
-            return redirect()->route('tiang')->with(['deleted' => 'Data Gagal Diimport!']);
-        }
+        // }catch(\Exception $e){
+            // return redirect()->route('tiang')->with(['deleted' => 'Data Gagal Diimport!']);
+        // }
 
         Storage::delete($path);
 

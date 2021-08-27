@@ -15,6 +15,7 @@ class CreateTiangsTable extends Migration
     {
         Schema::create('tiangs', function (Blueprint $table) {
             $table->id();
+            $table->string('nama');
             $table->string('alamat');
             $table->string('tahun_pembangunan');
             $table->string('tinggi');

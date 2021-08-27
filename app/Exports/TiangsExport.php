@@ -22,6 +22,7 @@ class TiangsExport implements FromCollection,WithHeadings
     {
         if($this->tahun_pembangunan != 'all'){
             return Tiang::where('tahun_pembangunan', $this->tahun_pembangunan)->get([
+                'nama',
                 'alamat',
                 'tahun_pembangunan',
                 'tinggi',
@@ -30,6 +31,7 @@ class TiangsExport implements FromCollection,WithHeadings
                 'longitude']);
         }else{
             return Tiang::get([
+                'nama',
                 'alamat',
                 'tahun_pembangunan',
                 'tinggi',
@@ -42,6 +44,7 @@ class TiangsExport implements FromCollection,WithHeadings
     public function headings(): array
     {
         return [
+            'Nama Tiang',
             'Alamat',
             'Tahun Pembangunan',
             'Tinggi',

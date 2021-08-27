@@ -12,6 +12,7 @@ class Tiang extends Model
     use Sortable;
 
     protected $fillable = [
+    'nama',
     'alamat',
     'tahun_pembangunan',
     'tinggi',
@@ -21,6 +22,7 @@ class Tiang extends Model
 ];
 
     public $sortable = [   
+        'nama',
         'tahun_pembangunan',
         'tinggi',
         'tipe'

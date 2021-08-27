@@ -17,7 +17,7 @@ FO ($tahun)")
         onkeyup="search()"
         class="form-control"
         type="text"
-        placeholder="Cari alamat tiang"
+        placeholder="Cari nama tiang"
         aria-label="Search"
       />
     </form>
@@ -38,6 +38,7 @@ FO ($tahun)")
       <thead>
         <tr>
           <td>#</td>
+          <td>@sortablelink('nama', 'Nama Tiang')</td>
           <td>Alamat</td>
           <td>Tahun Pembangunan</td>
           <td>@sortablelink('tinggi', 'Tinggi')</td>
@@ -51,13 +52,16 @@ FO ($tahun)")
       <tbody>
         @if(count($tiangs) == 0)
         <tr>
-          <td class="text-center" colspan="8">Tidak ada data Tiang</td>
+          <td class="text-center" colspan="9">Tidak ada data Tiang</td>
         </tr>
         @endif
         <!--  -->
         @foreach($tiangs as $tiang)
         <tr>
           <td>{{ $i++ }}</td>
+          <td>
+            {{$tiang->nama}}
+          </td>
           <td>
             {{$tiang->alamat}}
           </td>
@@ -76,6 +80,7 @@ FO ($tahun)")
                 id="del-btn-{{ $tiang->id }}"
                 type="submit"
                 class="btn btn-outline-danger w-100"
+                onclick="return confirm('Hapus data ini?')"
               ></button>
               @csrf @method('delete')
             </form>
