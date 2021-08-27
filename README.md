@@ -24,9 +24,14 @@
 
 
 
-Requirements:  
+Server Requirements:  
 - Composer version 2.1.3 2021-06-09 16:31:20
 - PHP 8.0.9 (cli) (built: Jul 29 2021 14:12:27) ( NTS Visual C++ 2019 x64 )  
+- PHP extension = mbstring  
+- PHP extension = openssl  
+- PHP extension = fileinfo   
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
