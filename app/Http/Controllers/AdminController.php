@@ -43,7 +43,7 @@ class AdminController extends Controller
     }
     
     public function update(Request $request ,$id){
-
+        $user  = User::find($id)->password;
         $request->validate([
             'name' =>  'required',
             'email' => ['required',Rule::unique('users')->ignore($id)],
@@ -56,7 +56,7 @@ class AdminController extends Controller
             'name' => $request->name,
             'email' => strtolower($request->email),
             'role' => $request->role,
-            'password' =>  ($request->password != null)? bcrypt($request->password) : $request->user()->password,
+            'password' =>  $request->password != ''? bcrypt($request->password) : $user,
         ]);
         return redirect()->route('admin_home')->with(['success' => 'User berhasil diperbarui']);
     }
