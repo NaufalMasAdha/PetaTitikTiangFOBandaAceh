@@ -65,7 +65,11 @@
               method="POST"
             >
               @csrf @method('delete')
-              <button id="del-btn-{{ $u->id }}" type="submit"></button>
+              <button
+                id="del-btn-{{ $u->id }}"
+                onclick="return confirm('Hapus data ini?')"
+                type="submit"
+              ></button>
               <a onclick="document.getElementById('del-btn').click()" href="#"
                 ><i class="bi bi-trash"></i
               ></a>

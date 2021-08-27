@@ -78,6 +78,7 @@ Instansi")
                 id="del-btn-{{ $in->id }}"
                 type="submit"
                 class="btn btn-outline-danger w-100"
+                onclick="return confirm('Hapus data ini?')"
               ></button>
               @csrf
               <!--  -->

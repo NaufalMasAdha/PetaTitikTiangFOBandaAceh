@@ -30,6 +30,22 @@ FO") @section('nav-menu')
       <!--  -->
       @csrf
       <div class="form-group">
+        <label for="nama">Nama Tiang </label>
+        <input
+          autocomplete="off"
+          class="form-control @error('nama') is-invalid @enderror"
+          type="text"
+          name="nama"
+          id="nama"
+          value="{{ $tiang->nama }}"
+        />
+        @error('nama')
+        <span class="text-danger" role="alert">
+          {{ $message }}
+        </span>
+        @enderror
+      </div>
+      <div class="form-group my-3">
         <label for="alamat">Alamat </label>
         <input
           autocomplete="off"

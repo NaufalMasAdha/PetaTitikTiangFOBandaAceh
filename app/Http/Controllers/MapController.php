@@ -40,9 +40,13 @@ class MapController extends Controller
                 'iconSize' => [25,37],
                 'iconAnchor' => [12,37],
                 'popup' => "
-                    <strong> Tiang $t->id </strong> ($t->tahun_pembangunan) <br>
+                    <strong> $t->nama </strong> ($t->tahun_pembangunan) <a href=\"tiang/edit/$t->id\" >Edit</a> <br>
                     <strong> Tipe:  </strong> $t->tipe <br>
-                    <strong> Tinggi: </strong> $t->tinggi meter
+                    <strong> Tinggi: </strong> $t->tinggi meter <br>
+                    
+                
+
+
 
              "));
         }
@@ -58,8 +62,8 @@ class MapController extends Controller
                 'icon' => '/instansi.png',
                 'iconSize' => [25,37],
                 'iconAnchor' => [12,37],
-                'popup' => '<strong>' .$i->nama .'</strong> <br>
-                HP: ' . $i->no_hp ));
+                'popup' => '<strong>' .$i->nama ."</strong> <a href=\"instansi/edit/$i->id\" >Edit</a> <br>
+                HP: " . $i->no_hp ));
             }
             
         }
@@ -92,6 +96,7 @@ class MapController extends Controller
 
     public function store_tiang(Request $request){
         $request->validate([
+            'nama' => 'required',
             'alamat' => 'required',
             'tahun_pembangunan' => 'required',
             'tinggi' => 'required',
@@ -102,6 +107,7 @@ class MapController extends Controller
         ]);
 
         Tiang::create([
+            'nama' =>  $request->nama,
             'alamat' =>  $request->alamat,
             'tahun_pembangunan' => $request->tahun_pembangunan,
             'tinggi' => $request->tinggi,
@@ -119,6 +125,7 @@ class MapController extends Controller
 
     public function update_tiang(Request $request ,$id){
         $request->validate([
+            'nama' => 'required',
             'alamat' => 'required',
             'tahun_pembangunan' => 'required',
             'tinggi' => 'required',
@@ -129,6 +136,7 @@ class MapController extends Controller
         ]);
 
         Tiang::find($id)->update([
+            'nama' =>  $request->nama,
             'alamat' =>  $request->alamat,
             'tahun_pembangunan' => $request->tahun_pembangunan,
             'tinggi' => $request->tinggi,
